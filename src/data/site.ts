@@ -16,7 +16,7 @@ export const doc = (path: string): string => {
   return LIVE + path.split("/").map(encodeURIComponent).join("/");
 };
 
-export const CITAS_URL = "https://www.idpnl.gob.mx/citas/AgendaCita.aspx";
+export const CITAS_URL = "https://citas.idpnl.gob.mx";
 export const CONSULTA_CITA_URL = "https://www.idpnl.gob.mx/citas/Consulta.aspx";
 
 export const site = {
