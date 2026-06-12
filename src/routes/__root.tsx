@@ -145,6 +145,7 @@ function RootComponent() {
           </main>
           <Footer />
           <Chatbot />
+          <FloatingSocial />
         </div>
       )}
     </QueryClientProvider>
