@@ -9,38 +9,195 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UbicacionRouteImport } from './routes/ubicacion'
+import { Route as TransparenciaRouteImport } from './routes/transparencia'
+import { Route as TramitesRouteImport } from './routes/tramites'
+import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as LegislacionRouteImport } from './routes/legislacion'
+import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const UbicacionRoute = UbicacionRouteImport.update({
+  id: '/ubicacion',
+  path: '/ubicacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransparenciaRoute = TransparenciaRouteImport.update({
+  id: '/transparencia',
+  path: '/transparencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TramitesRoute = TramitesRouteImport.update({
+  id: '/tramites',
+  path: '/tramites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegislacionRoute = LegislacionRouteImport.update({
+  id: '/legislacion',
+  path: '/legislacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaDefensoriaRoute = LaDefensoriaRouteImport.update({
+  id: '/la-defensoria',
+  path: '/la-defensoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
+  '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
+  '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
+  '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/la-defensoria'
+    | '/legislacion'
+    | '/servicios'
+    | '/tramites'
+    | '/transparencia'
+    | '/ubicacion'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contacto'
+    | '/la-defensoria'
+    | '/legislacion'
+    | '/servicios'
+    | '/tramites'
+    | '/transparencia'
+    | '/ubicacion'
+    | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/la-defensoria'
+    | '/legislacion'
+    | '/servicios'
+    | '/tramites'
+    | '/transparencia'
+    | '/ubicacion'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  LaDefensoriaRoute: typeof LaDefensoriaRoute
+  LegislacionRoute: typeof LegislacionRoute
+  ServiciosRoute: typeof ServiciosRoute
+  TramitesRoute: typeof TramitesRoute
+  TransparenciaRoute: typeof TransparenciaRoute
+  UbicacionRoute: typeof UbicacionRoute
+  ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ubicacion': {
+      id: '/ubicacion'
+      path: '/ubicacion'
+      fullPath: '/ubicacion'
+      preLoaderRoute: typeof UbicacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transparencia': {
+      id: '/transparencia'
+      path: '/transparencia'
+      fullPath: '/transparencia'
+      preLoaderRoute: typeof TransparenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tramites': {
+      id: '/tramites'
+      path: '/tramites'
+      fullPath: '/tramites'
+      preLoaderRoute: typeof TramitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legislacion': {
+      id: '/legislacion'
+      path: '/legislacion'
+      fullPath: '/legislacion'
+      preLoaderRoute: typeof LegislacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/la-defensoria': {
+      id: '/la-defensoria'
+      path: '/la-defensoria'
+      fullPath: '/la-defensoria'
+      preLoaderRoute: typeof LaDefensoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +205,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  LaDefensoriaRoute: LaDefensoriaRoute,
+  LegislacionRoute: LegislacionRoute,
+  ServiciosRoute: ServiciosRoute,
+  TramitesRoute: TramitesRoute,
+  TransparenciaRoute: TransparenciaRoute,
+  UbicacionRoute: UbicacionRoute,
+  ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
