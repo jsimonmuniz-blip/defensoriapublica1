@@ -88,10 +88,10 @@ export function Chatbot() {
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setOpen(true)}
-              aria-label="Abrir asistente Dipi"
+              aria-label="Abrir asistente virtual"
               className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary shadow-glow"
             >
-              <img src={dipi} alt="Dipi" className="h-12 w-12 object-contain drop-shadow" />
+              <img src={dipi} alt="Asistente virtual" className="h-12 w-12 object-contain drop-shadow" />
             </motion.button>
           )}
         </AnimatePresence>
