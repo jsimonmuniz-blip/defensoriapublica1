@@ -69,10 +69,10 @@ export function HeroCarousel() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <h1 className="text-balance font-display text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance font-display text-4xl font-extrabold leading-tight text-navy-foreground [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
               {slide.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-navy-foreground/85">{slide.subtitle}</p>
+            <p className="mt-5 max-w-2xl text-lg text-navy-foreground/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{slide.subtitle}</p>
           </motion.div>
         </AnimatePresence>
 
