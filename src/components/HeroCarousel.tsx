@@ -80,7 +80,7 @@ export function HeroCarousel() {
             href={CITAS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.04]"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-blue px-7 py-3.5 text-base font-semibold text-navy-foreground shadow-blue transition-transform hover:scale-[1.04]"
           >
             <CalendarCheck className="h-5 w-5" /> Agendar una cita
           </a>
