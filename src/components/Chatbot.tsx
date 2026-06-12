@@ -14,7 +14,7 @@ const SUGGESTIONS = [
 ];
 
 const GREETING =
-  "¡Hola! 👋 Soy **Dipi**, tu asistente del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas como sacar tu CURP o un acta de nacimiento. ¿En qué te apoyo?";
+  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas como sacar tu CURP o un acta de nacimiento. ¿En qué te apoyo?";
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
