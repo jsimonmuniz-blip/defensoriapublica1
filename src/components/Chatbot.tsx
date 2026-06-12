@@ -3,7 +3,7 @@ import { DefaultChatTransport } from "ai";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { X, Send, Sparkles } from "lucide-react";
 import dipi from "@/assets/dipi-mascot.png";
 
 const SUGGESTIONS = [
