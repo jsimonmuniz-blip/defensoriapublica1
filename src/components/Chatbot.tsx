@@ -110,10 +110,10 @@ export function Chatbot() {
             {/* Header */}
             <div className="flex items-center gap-3 bg-gradient-navy px-4 py-3.5 text-navy-foreground">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 p-1">
-                <img src={dipi} alt="Dipi" className="h-9 w-9 object-contain" />
+                <img src={dipi} alt="Asistente virtual" className="h-9 w-9 object-contain" />
               </div>
               <div className="flex-1">
-                <p className="font-display text-base font-bold leading-none">Dipi</p>
+                <p className="font-display text-base font-bold leading-none">Asistente virtual</p>
                 <p className="mt-1 flex items-center gap-1 text-xs text-navy-foreground/80">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" /> Asistente del IDPNL
                 </p>
