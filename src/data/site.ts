@@ -1,13 +1,23 @@
 // Centralized site content for Instituto de Defensoría Pública de Nuevo León (IDPNL).
-// PDFs and legacy pages are served through the Wayback Machine snapshot so links keep working.
+// PDFs are downloaded from the original site (www.idpnl.gob.mx) and hosted on Lovable's
+// CDN, so every link opens the exact document directly and never breaks.
 
-const WB = "https://web.archive.org/web/20240223064434/http://idpnl.gob.mx/";
+import docMap from "./doc-map.json";
 
-/** Build a working URL to an archived asset on the original site. */
-export const doc = (path: string) => WB + path.split("/").map(encodeURIComponent).join("/");
+const LIVE = "https://www.idpnl.gob.mx/";
 
-export const CITAS_URL = "https://web.archive.org/web/20240223064434/http://www.idpnl.gob.mx/citas/AgendaCita.aspx";
-export const CONSULTA_CITA_URL = "https://web.archive.org/web/20240223064434/http://www.idpnl.gob.mx/citas/Consulta.aspx";
+/**
+ * Build a working URL to a document.
+ * Prefers the CDN-hosted copy; falls back to the live site if not mapped.
+ */
+export const doc = (path: string): string => {
+  const url = (docMap as Record<string, string>)[path];
+  if (url) return url;
+  return LIVE + path.split("/").map(encodeURIComponent).join("/");
+};
+
+export const CITAS_URL = "https://www.idpnl.gob.mx/citas/AgendaCita.aspx";
+export const CONSULTA_CITA_URL = "https://www.idpnl.gob.mx/citas/Consulta.aspx";
 
 export const site = {
   name: "Instituto de Defensoría Pública de Nuevo León",
