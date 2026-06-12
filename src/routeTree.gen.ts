@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as LegislacionRouteImport } from './routes/legislacion'
 import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -23,6 +24,11 @@ const TramitesRoute = TramitesRouteImport.update({
 const ServiciosRoute = ServiciosRouteImport.update({
   id: '/servicios',
   path: '/servicios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegislacionRoute = LegislacionRouteImport.update({
+  id: '/legislacion',
+  path: '/legislacion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LaDefensoriaRoute = LaDefensoriaRouteImport.update({
@@ -44,6 +50,7 @@ const ApiChatRoute = ApiChatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
@@ -59,19 +67,33 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
+  '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/la-defensoria' | '/servicios' | '/tramites' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/la-defensoria'
+    | '/legislacion'
+    | '/servicios'
+    | '/tramites'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/la-defensoria' | '/servicios' | '/tramites' | '/api/chat'
+  to:
+    | '/'
+    | '/la-defensoria'
+    | '/legislacion'
+    | '/servicios'
+    | '/tramites'
+    | '/api/chat'
   id:
     | '__root__'
     | '/'
     | '/la-defensoria'
+    | '/legislacion'
     | '/servicios'
     | '/tramites'
     | '/api/chat'
@@ -80,6 +102,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LaDefensoriaRoute: typeof LaDefensoriaRoute
+  LegislacionRoute: typeof LegislacionRoute
   ServiciosRoute: typeof ServiciosRoute
   TramitesRoute: typeof TramitesRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/servicios'
       fullPath: '/servicios'
       preLoaderRoute: typeof ServiciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legislacion': {
+      id: '/legislacion'
+      path: '/legislacion'
+      fullPath: '/legislacion'
+      preLoaderRoute: typeof LegislacionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/la-defensoria': {
@@ -128,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LaDefensoriaRoute: LaDefensoriaRoute,
+  LegislacionRoute: LegislacionRoute,
   ServiciosRoute: ServiciosRoute,
   TramitesRoute: TramitesRoute,
   ApiChatRoute: ApiChatRoute,
