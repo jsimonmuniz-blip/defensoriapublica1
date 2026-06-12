@@ -81,14 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Instituto de Defensoría Pública de Nuevo León" },
+      { name: "description", content: "Defensa y asesoría jurídica gratuita en Nuevo León: materia penal, familiar, civil y administrativa. Trámites, oficinas y citas." },
+      { name: "author", content: "Instituto de Defensoría Pública de Nuevo León" },
+      { property: "og:title", content: "Instituto de Defensoría Pública de Nuevo León" },
+      { property: "og:description", content: "Servicios jurídicos gratuitos para los nuevoleoneses. ¡Sin defensa no hay justicia!" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
