@@ -21,9 +21,9 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Instituto de Defensoría Pública de Nuevo León" className="h-12 w-auto sm:h-14" />
+          <img src={logoAsset.url} alt="Instituto de Defensoría Pública de Nuevo León" className="h-16 w-auto sm:h-20" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
