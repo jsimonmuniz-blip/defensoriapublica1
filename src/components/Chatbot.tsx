@@ -71,9 +71,9 @@ export function Chatbot() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
               </span>
-              <p className="text-sm font-semibold text-foreground">¡Hola! Soy Dipi 🦉</p>
+              <p className="text-sm font-semibold text-foreground">¡Hola! 👋</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                ¿Necesitas ayuda con un trámite o servicio? Pregúntame lo que quieras.
+                Soy el asistente virtual. ¿Necesitas ayuda con un trámite o servicio? Pregúntame lo que quieras.
               </p>
             </motion.button>
           )}
