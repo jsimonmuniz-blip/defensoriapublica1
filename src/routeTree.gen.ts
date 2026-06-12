@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const TramitesRoute = TramitesRouteImport.update({
+  id: '/tramites',
+  path: '/tramites',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServiciosRoute = ServiciosRouteImport.update({
   id: '/servicios',
   path: '/servicios',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
@@ -52,25 +60,40 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/servicios': typeof ServiciosRoute
+  '/tramites': typeof TramitesRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/la-defensoria' | '/servicios' | '/api/chat'
+  fullPaths: '/' | '/la-defensoria' | '/servicios' | '/tramites' | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/la-defensoria' | '/servicios' | '/api/chat'
-  id: '__root__' | '/' | '/la-defensoria' | '/servicios' | '/api/chat'
+  to: '/' | '/la-defensoria' | '/servicios' | '/tramites' | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/la-defensoria'
+    | '/servicios'
+    | '/tramites'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LaDefensoriaRoute: typeof LaDefensoriaRoute
   ServiciosRoute: typeof ServiciosRoute
+  TramitesRoute: typeof TramitesRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tramites': {
+      id: '/tramites'
+      path: '/tramites'
+      fullPath: '/tramites'
+      preLoaderRoute: typeof TramitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/servicios': {
       id: '/servicios'
       path: '/servicios'
@@ -106,6 +129,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LaDefensoriaRoute: LaDefensoriaRoute,
   ServiciosRoute: ServiciosRoute,
+  TramitesRoute: TramitesRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
