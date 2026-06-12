@@ -53,6 +53,7 @@ export function HeroCarousel() {
       </AnimatePresence>
 
       <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
 
       <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
         <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary-foreground backdrop-blur">
@@ -68,10 +69,10 @@ export function HeroCarousel() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <h1 className="text-balance font-display text-4xl font-extrabold leading-tight text-navy-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance font-display text-4xl font-extrabold leading-tight text-navy-foreground [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] sm:text-5xl lg:text-6xl">
               {slide.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-navy-foreground/85">{slide.subtitle}</p>
+            <p className="mt-5 max-w-2xl text-lg text-navy-foreground/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{slide.subtitle}</p>
           </motion.div>
         </AnimatePresence>
 
