@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UbicacionRouteImport } from './routes/ubicacion'
 import { Route as TransparenciaRouteImport } from './routes/transparencia'
 import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as ServiciosRouteImport } from './routes/servicios'
@@ -17,6 +18,11 @@ import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const UbicacionRoute = UbicacionRouteImport.update({
+  id: '/ubicacion',
+  path: '/ubicacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TransparenciaRoute = TransparenciaRouteImport.update({
   id: '/transparencia',
   path: '/transparencia',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/servicios': typeof ServiciosRoute
   '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
+  '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/tramites'
     | '/transparencia'
+    | '/ubicacion'
     | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/tramites'
     | '/transparencia'
+    | '/ubicacion'
     | '/api/chat'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/tramites'
     | '/transparencia'
+    | '/ubicacion'
     | '/api/chat'
   fileRoutesById: FileRoutesById
 }
@@ -118,11 +130,19 @@ export interface RootRouteChildren {
   ServiciosRoute: typeof ServiciosRoute
   TramitesRoute: typeof TramitesRoute
   TransparenciaRoute: typeof TransparenciaRoute
+  UbicacionRoute: typeof UbicacionRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ubicacion': {
+      id: '/ubicacion'
+      path: '/ubicacion'
+      fullPath: '/ubicacion'
+      preLoaderRoute: typeof UbicacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/transparencia': {
       id: '/transparencia'
       path: '/transparencia'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServiciosRoute: ServiciosRoute,
   TramitesRoute: TramitesRoute,
   TransparenciaRoute: TransparenciaRoute,
+  UbicacionRoute: UbicacionRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
