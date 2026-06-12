@@ -199,6 +199,12 @@
   .bg-gradient-navy {
     background-image: var(--gradient-navy);
   }
+  .bg-gradient-blue {
+    background-image: var(--gradient-blue);
+  }
+  .shadow-blue {
+    box-shadow: var(--shadow-blue);
+  }
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
