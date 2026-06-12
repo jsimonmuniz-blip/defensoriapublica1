@@ -14,7 +14,7 @@ const SUGGESTIONS = [
 ];
 
 const GREETING =
-  "¡Hola! 👋 Soy **Dipi**, tu asistente del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas como sacar tu CURP o un acta de nacimiento. ¿En qué te apoyo?";
+  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas como sacar tu CURP o un acta de nacimiento. ¿En qué te apoyo?";
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
@@ -71,9 +71,9 @@ export function Chatbot() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
               </span>
-              <p className="text-sm font-semibold text-foreground">¡Hola! Soy Dipi 🦉</p>
+              <p className="text-sm font-semibold text-foreground">¡Hola! 👋</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                ¿Necesitas ayuda con un trámite o servicio? Pregúntame lo que quieras.
+                Soy el asistente virtual. ¿Necesitas ayuda con un trámite o servicio? Pregúntame lo que quieras.
               </p>
             </motion.button>
           )}
@@ -88,10 +88,10 @@ export function Chatbot() {
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setOpen(true)}
-              aria-label="Abrir asistente Dipi"
+              aria-label="Abrir asistente virtual"
               className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary shadow-glow"
             >
-              <img src={dipi} alt="Dipi" className="h-12 w-12 object-contain drop-shadow" />
+              <img src={dipi} alt="Asistente virtual" className="h-12 w-12 object-contain drop-shadow" />
             </motion.button>
           )}
         </AnimatePresence>
@@ -110,10 +110,10 @@ export function Chatbot() {
             {/* Header */}
             <div className="flex items-center gap-3 bg-gradient-navy px-4 py-3.5 text-navy-foreground">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 p-1">
-                <img src={dipi} alt="Dipi" className="h-9 w-9 object-contain" />
+                <img src={dipi} alt="Asistente virtual" className="h-9 w-9 object-contain" />
               </div>
               <div className="flex-1">
-                <p className="font-display text-base font-bold leading-none">Dipi</p>
+                <p className="font-display text-base font-bold leading-none">Asistente virtual</p>
                 <p className="mt-1 flex items-center gap-1 text-xs text-navy-foreground/80">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" /> Asistente del IDPNL
                 </p>
@@ -213,7 +213,7 @@ export function Chatbot() {
               </button>
             </form>
             <div className="flex items-center justify-center gap-1 bg-card pb-2 text-[10px] text-muted-foreground">
-              <Sparkles className="h-3 w-3" /> Dipi solo responde temas del IDPNL
+              <Sparkles className="h-3 w-3" /> El asistente solo responde temas del IDPNL
             </div>
           </motion.div>
         )}

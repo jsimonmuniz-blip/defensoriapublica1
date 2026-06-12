@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Chatbot } from "../components/Chatbot";
+import { FloatingSocial } from "../components/FloatingSocial";
 
 function NotFoundComponent() {
   return (
@@ -144,6 +145,7 @@ function RootComponent() {
           </main>
           <Footer />
           <Chatbot />
+          <FloatingSocial />
         </div>
       )}
     </QueryClientProvider>
