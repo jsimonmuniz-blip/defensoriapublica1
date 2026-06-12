@@ -15,6 +15,7 @@ import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as LegislacionRouteImport } from './routes/legislacion'
 import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -48,6 +49,11 @@ const LaDefensoriaRoute = LaDefensoriaRouteImport.update({
   path: '/la-defensoria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +67,7 @@ const ApiChatRoute = ApiChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contacto'
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contacto'
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/contacto'
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
   LaDefensoriaRoute: typeof LaDefensoriaRoute
   LegislacionRoute: typeof LegislacionRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LaDefensoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
   LaDefensoriaRoute: LaDefensoriaRoute,
   LegislacionRoute: LegislacionRoute,
   ServiciosRoute: ServiciosRoute,
