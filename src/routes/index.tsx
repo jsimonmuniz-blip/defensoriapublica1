@@ -112,7 +112,7 @@ function Index() {
           <div className="mb-8 max-w-2xl">
             <span className="rounded-full bg-primary/15 px-4 py-1 text-sm font-semibold text-primary">Trámites comunes</span>
             <h2 className="mt-4 font-display text-3xl font-extrabold text-foreground sm:text-4xl">¿Necesitas tu CURP o un acta?</h2>
-            <p className="mt-3 text-muted-foreground">Te dejamos los enlaces oficiales. Y si tienes dudas, pregúntale a Dipi, nuestro asistente.</p>
+            <p className="mt-3 text-muted-foreground">Te dejamos los enlaces oficiales. Y si tienes dudas, pregúntale a nuestro asistente.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {enlacesUtiles.map((e, i) => {
