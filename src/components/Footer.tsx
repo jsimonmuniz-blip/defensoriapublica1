@@ -43,7 +43,7 @@ export function Footer() {
                 href={CITAS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-4 py-2 font-semibold text-primary-foreground"
+                className="mt-1 inline-flex items-center gap-2 rounded-full bg-gradient-blue px-4 py-2 font-semibold text-navy-foreground shadow-blue"
               >
                 <CalendarCheck className="h-4 w-4" /> Agendar cita
               </a>
