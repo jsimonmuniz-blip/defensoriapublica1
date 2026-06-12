@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, CalendarCheck } from "lucide-react";
-import logo from "@/assets/logo-original.jpg";
+import logoAsset from "@/assets/logo-idpnl.png.asset.json";
 import { CITAS_URL } from "@/data/site";
 import { cn } from "@/lib/utils";
 
