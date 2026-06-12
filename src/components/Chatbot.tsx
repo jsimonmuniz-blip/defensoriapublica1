@@ -213,7 +213,7 @@ export function Chatbot() {
               </button>
             </form>
             <div className="flex items-center justify-center gap-1 bg-card pb-2 text-[10px] text-muted-foreground">
-              <Sparkles className="h-3 w-3" /> Dipi solo responde temas del IDPNL
+              <Sparkles className="h-3 w-3" /> El asistente solo responde temas del IDPNL
             </div>
           </motion.div>
         )}
