@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { CalendarCheck, ArrowRight, Phone, Mail, UserRound } from "lucide-react";
+import hero1 from "@/assets/hero-1.jpg";
+import hero2 from "@/assets/hero-2.jpg";
+import hero3 from "@/assets/hero-3.jpg";
 import directorPhoto from "@/assets/director-carlos.png.asset.json";
 import { site, CITAS_URL } from "@/data/site";
 import {
@@ -14,14 +17,17 @@ import {
 
 const slides = [
   {
+    img: hero1,
     title: "Defensa jurídica gratuita para todos los nuevoleoneses",
     subtitle: "Asesoría y representación legal especializada, sin costo, para proteger tus derechos.",
   },
   {
+    img: hero2,
     title: "Sin defensa no hay justicia",
     subtitle: "Defensores certificados a tu lado en materia penal, familiar, civil y administrativa.",
   },
   {
+    img: hero3,
     title: "Estamos cerca de ti en todo el Estado",
     subtitle: "Más de 30 oficinas en el área metropolitana y municipios foráneos listas para atenderte.",
   },
@@ -45,9 +51,24 @@ export function HeroCarousel() {
   const slide = slides[index];
 
   return (
-    <section className="relative min-h-[88vh] w-full overflow-hidden bg-gradient-navy py-16 lg:py-0">
+    <section className="relative min-h-[88vh] w-full overflow-hidden py-16 lg:py-0">
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={index}
+          src={slide.img}
+          alt=""
+          width={1920}
+          height={1080}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ opacity: { duration: 1.1 }, scale: { duration: 6.5, ease: "linear" } }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </AnimatePresence>
+
       <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
 
       <div className="relative mx-auto grid h-full min-h-[inherit] max-w-7xl grid-cols-1 items-center gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
         <div className="flex flex-col justify-center">
