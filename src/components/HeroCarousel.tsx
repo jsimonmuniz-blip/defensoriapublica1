@@ -132,17 +132,15 @@ export function HeroCarousel() {
             />
           </div>
 
-          <div className="mt-5 w-full rounded-2xl border border-white/15 bg-navy/55 px-5 py-4 backdrop-blur-md shadow-elegant">
-            <h2 className="font-display text-lg font-bold leading-snug text-navy-foreground sm:text-xl">
-              Carlos Manuel Cuevas Martínez
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-navy-foreground/80">
-              Director General del Instituto de Defensoría Pública de Nuevo León
-            </p>
-            <p className="mt-3 inline-flex rounded-full bg-primary/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
-              Administración 2021-2027
-            </p>
-          </div>
+          <h2 className="mt-5 font-display text-xl font-bold text-navy-foreground [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">
+            Carlos Manuel Cuevas Martínez
+          </h2>
+          <p className="mt-1 text-sm text-navy-foreground/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
+            Director General del Instituto de Defensoría Pública de Nuevo León
+          </p>
+          <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground">
+            Administración 2021-2027
+          </p>
 
           <Dialog>
             <DialogTrigger asChild>
