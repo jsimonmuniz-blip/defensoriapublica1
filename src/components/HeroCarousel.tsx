@@ -5,6 +5,7 @@ import { CalendarCheck, ArrowRight, Phone, Mail, UserRound } from "lucide-react"
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
+import heroBanner from "@/assets/banner-idpnl.png";
 import directorPhoto from "@/assets/director-carlos.png.asset.json";
 import { site, CITAS_URL } from "@/data/site";
 import {
