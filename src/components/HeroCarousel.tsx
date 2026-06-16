@@ -53,20 +53,13 @@ export function HeroCarousel() {
 
   return (
     <section className="relative min-h-[88vh] w-full overflow-hidden py-16 lg:py-0">
-      <AnimatePresence mode="sync">
-        <motion.img
-          key={index}
-          src={slide.img}
-          alt=""
-          width={1920}
-          height={1080}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.1 }, scale: { duration: 6.5, ease: "linear" } }}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </AnimatePresence>
+      <img
+        src={heroBanner}
+        alt="Instituto de Defensoría Pública de Nuevo León"
+        width={1264}
+        height={842}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
 
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
