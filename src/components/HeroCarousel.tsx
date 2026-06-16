@@ -14,17 +14,14 @@ import {
 
 const slides = [
   {
-    img: hero1,
     title: "Defensa jurídica gratuita para todos los nuevoleoneses",
     subtitle: "Asesoría y representación legal especializada, sin costo, para proteger tus derechos.",
   },
   {
-    img: hero2,
     title: "Sin defensa no hay justicia",
     subtitle: "Defensores certificados a tu lado en materia penal, familiar, civil y administrativa.",
   },
   {
-    img: hero3,
     title: "Estamos cerca de ti en todo el Estado",
     subtitle: "Más de 30 oficinas en el área metropolitana y municipios foráneos listas para atenderte.",
   },
