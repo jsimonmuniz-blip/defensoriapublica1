@@ -58,11 +58,8 @@ ${leyes}
 ## Transparencia y documentos:
 ${transp}
 
-## Oficinas — Área Metropolitana:
-${metro}
-
-## Oficinas — Área Foránea:
-${foraneas}
+## Directorio de oficinas (teléfonos y direcciones por área de defensa):
+${dir}
 
 ## Agendar una cita:
 ${CITAS_URL}
