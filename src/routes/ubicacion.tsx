@@ -52,29 +52,48 @@ function OficinaCard({ o }: { o: Oficina }) {
   const embedSrc = `https://www.google.com/maps?q=${query}&output=embed`;
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${query}`;
 
+  const mapContent = (
+    <>
+      <div className="relative aspect-video w-full bg-muted">
+        <iframe
+          title={`Mapa de ${o.nombre}`}
+          src={embedSrc}
+          className="h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+      <a
+        href={mapsLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90"
+      >
+        <ExternalLink className="h-4 w-4" /> Abrir en Google Maps
+      </a>
+    </>
+  );
+
+  if (isMobile) {
+    return (
+      <Popover>
+        <PopoverTrigger asChild>
+          <div className="h-full cursor-pointer">{card}</div>
+        </PopoverTrigger>
+        <PopoverContent className="w-80 overflow-hidden p-0" sideOffset={8}>
+          {mapContent}
+        </PopoverContent>
+      </Popover>
+    );
+  }
+
   return (
     <HoverCard openDelay={120} closeDelay={120}>
       <HoverCardTrigger asChild>
         <div className="h-full cursor-pointer">{card}</div>
       </HoverCardTrigger>
       <HoverCardContent className="w-80 overflow-hidden p-0" sideOffset={8}>
-        <div className="relative aspect-video w-full bg-muted">
-          <iframe
-            title={`Mapa de ${o.nombre}`}
-            src={embedSrc}
-            className="h-full w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-        <a
-          href={mapsLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90"
-        >
-          <ExternalLink className="h-4 w-4" /> Abrir en Google Maps
-        </a>
+        {mapContent}
       </HoverCardContent>
     </HoverCard>
   );
