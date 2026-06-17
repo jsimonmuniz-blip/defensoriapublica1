@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Building2 } from "lucide-react";
+import { Phone, MapPin, Building2, ExternalLink } from "lucide-react";
 import { PageHero, Section } from "@/components/blocks";
 import { directorio, type Oficina, type DirectorioGrupo } from "@/data/site";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 export const Route = createFileRoute("/ubicacion")({
   head: () => ({
