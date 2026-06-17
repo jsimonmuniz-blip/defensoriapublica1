@@ -9,7 +9,7 @@ import {
   oficinasMetro,
   oficinasForaneas,
   enlacesUtiles,
-  doc,
+  docPublic as doc,
   CITAS_URL,
 } from "@/data/site";
 import { createFileRoute } from "@tanstack/react-router";
