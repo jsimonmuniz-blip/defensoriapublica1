@@ -16,6 +16,14 @@ export const doc = (path: string): string => {
   return LIVE + path.split("/").map(encodeURIComponent).join("/");
 };
 
+/**
+ * Build a public-facing URL to a document using the official IDPNL site only,
+ * never the internal CDN. Used for links the chatbot shares with users.
+ */
+export const docPublic = (path: string): string =>
+  LIVE + path.split("/").map(encodeURIComponent).join("/");
+
+
 export const CITAS_URL = "https://citas.idpnl.gob.mx";
 export const CONSULTA_CITA_URL = "https://www.idpnl.gob.mx/citas/Consulta.aspx";
 
