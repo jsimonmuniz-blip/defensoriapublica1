@@ -25,6 +25,7 @@ export const Route = createFileRoute("/ubicacion")({
 });
 
 function OficinaCard({ o }: { o: Oficina }) {
+  const isMobile = useIsMobile();
   const card = (
     <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-1">
       <h3 className="font-display text-base font-bold text-foreground">{o.nombre}</h3>
