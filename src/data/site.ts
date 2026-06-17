@@ -160,42 +160,99 @@ export const transparencia: DocGroup[] = [
   },
 ];
 
-export type Oficina = { nombre: string; telefono: string; direccion: string };
+export type Oficina = { nombre: string; telefono: string; direccion?: string; piso?: string };
+export type DirectorioGrupo = { titulo: string; sede?: string; oficinas: Oficina[] };
 
-export const oficinasMetro: Oficina[] = [
-  { nombre: "Edificio Central", telefono: "81 2020-5600", direccion: "Matamoros 311 Ote., Centro, Monterrey, N.L." },
-  { nombre: "Apoyo Técnico", telefono: "81 1970-4050", direccion: "Matamoros 409 Ote., Centro, Monterrey" },
-  { nombre: "Edificio Latino", telefono: "81 8340-1235", direccion: "Juan I. Ramón #506, 4° piso, Centro, Monterrey" },
-  { nombre: "Defensa Especializada en Ejecución de Sanciones", telefono: "81 2033-1564", direccion: "Matamoros 311 Ote., piso 5, Centro, Monterrey" },
-  { nombre: "Unidad de Métodos Alternos", telefono: "81 2020-5685", direccion: "Allende #302, Centro, Monterrey" },
-  { nombre: "Defensa en Segunda Instancia y Amparo", telefono: "81 2020-5686", direccion: "Allende #322, Centro, Monterrey" },
-  { nombre: "Defensa en Proceso Penal", telefono: "81 2033-1161 al 1163", direccion: "Zacatepec No. 103, locales 2, 3 y 4, Col. Valle Morelos" },
-  { nombre: "IDP San Pedro", telefono: "81 2315-0747 / 81 2020-8735", direccion: "Corregidora #507, Centro de San Pedro Garza García (Palacio de Justicia)" },
-  { nombre: "IDP San Nicolás — Penal", telefono: "81 2033-1156", direccion: "Jorge González Camarena #107, Col. Residencial El Roble" },
-  { nombre: "IDP San Nicolás", telefono: "81 2033-3363 / 81 1969-0537", direccion: "Jorge González Camarena #501, Col. Valle Dorado" },
-  { nombre: "IDP Guadalupe — Familiar y Proceso Penal", telefono: "81 2033-3360 al 3362", direccion: "Av. Lázaro Cárdenas No. 809, int. 4-7, 2° piso, Col. Ignacio Zaragoza, Guadalupe" },
-  { nombre: "Robo de Vehículo (Monterrey)", telefono: "81 2033-1178", direccion: "Aarón Sáenz e Insurgentes #1357, Monterrey" },
-  { nombre: "Agencia Especializada en Justicia para Adolescentes (Guadalupe)", telefono: "81 2020-6387", direccion: "Constituyentes de N.L. #200, local 1, Col. Parque Industrial Regiomontano, Guadalupe" },
-  { nombre: "Centro de Justicia Familiar", telefono: "81 2020-5923", direccion: "Alejandro de Humboldt #800, Col. Mirador Centro" },
-  { nombre: "IDP Escobedo", telefono: "81 2033-1183 al 1185", direccion: "Av. Las Industrias No. 300, Parque Industrial, General Escobedo" },
-  { nombre: "San Jerónimo (Investigaciones Penales)", telefono: "81 2139-0071 al 0073", direccion: "San Jerónimo No. 300, Col. San Jerónimo, Monterrey" },
-  { nombre: "IDP García", telefono: "81 2033-1180 al 1182", direccion: "Calle General Treviño 408, Centro, Villa de García, N.L." },
-  { nombre: "IDP Apodaca", telefono: "81 2033-8753 al 8755", direccion: "Futuro Apodaca 411A, Col. Futuro Apodaca, Apodaca, N.L." },
-  { nombre: "IDP Santa Catarina", telefono: "81 2091-3041 / 81 2033-4250", direccion: "Zaragoza 112-6, Infonavit La Huasteca, 5° sector, Santa Catarina" },
-];
-
-export const oficinasForaneas: Oficina[] = [
-  { nombre: "Juárez", telefono: "81 8233-2718", direccion: "Tapia #308, Centro, Municipio de Juárez" },
-  { nombre: "Cadereyta No. 1", telefono: "82 8284-6420", direccion: "Edificio Poder Judicial, Libramiento Cadereyta-Reynosa Km. 30, Col. El Calvario" },
-  { nombre: "Cadereyta No. 2", telefono: "82 8111-0149", direccion: "Edificio Poder Judicial, Cadereyta" },
-  { nombre: "Linares", telefono: "82 1212-8455", direccion: "Palacio de Justicia, Av. Prolongación Hidalgo, Col. Parque Industrial" },
-  { nombre: "Dr. Arroyo", telefono: "48 8888-0977", direccion: "Francisco Merla y Lerdo de Tejada s/n (Palacio de Justicia)" },
-  { nombre: "Cerralvo", telefono: "89 2975-0712", direccion: "Jiménez #103, Centro" },
-  { nombre: "Villaldama", telefono: "82 9245-0375", direccion: "Zaragoza s/n, entre Allende y Rayón, oficinas del Poder Judicial, 2° piso" },
-  { nombre: "Sabinas Hidalgo", telefono: "82 4242-2124", direccion: "Porfirio Díaz #505 Sur, entre Hidalgo y Niños Héroes" },
-  { nombre: "Montemorelos", telefono: "82 6107-0030", direccion: "Palacio de Justicia, Carretera Nacional Km. 3, Demarcación Las Lilas" },
-  { nombre: "Galeana", telefono: "82 6213-0535", direccion: "Calle Cuauhtémoc s/n, Centro, entre 5 de Mayo y Constitución" },
-  { nombre: "China", telefono: "82 3232-0662", direccion: "Carretera Monterrey-Reynosa Km. 112" },
+// Directorio oficial 2026 — Instituto de Defensoría Pública de Nuevo León
+export const directorio: DirectorioGrupo[] = [
+  {
+    titulo: "Edificio Central IDPNL",
+    sede: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León",
+    oficinas: [
+      { nombre: "Dirección General", telefono: "81 2020-5604", piso: "Piso 6" },
+      { nombre: "Subdirección General", telefono: "81 2020-5613", piso: "Piso 6" },
+      { nombre: "Dirección Administrativa", telefono: "81 2033-1579", piso: "Piso 6" },
+      { nombre: "Unidad Jurídica", telefono: "81 2020-5676", piso: "Piso 1" },
+      { nombre: "Asesoría Jurídica Telefónica", telefono: "81 1306-1135", piso: "Planta baja" },
+      { nombre: "Conmutador", telefono: "81 2020-5600", piso: "Sótano" },
+    ],
+  },
+  {
+    titulo: "Centro de Integración y Defensa Familiar",
+    oficinas: [
+      { nombre: "Métodos Alternos", telefono: "81 1306-1203 / 81 1306-1204", direccion: "Planta baja" },
+      { nombre: "Unidad de Elaboración de Demandas", telefono: "81 1306-1214", direccion: "Planta baja" },
+      { nombre: "Unidad de Atención Ciudadana", telefono: "81 1339-9602", direccion: "Planta baja" },
+    ],
+  },
+  {
+    titulo: "Defensa en Investigaciones Penales",
+    oficinas: [
+      { nombre: "Apodaca", telefono: "81 2033-8753, 8754, 8755", direccion: "Futuro Apodaca 411A, Col. Futuro Apodaca, Apodaca, N.L." },
+      { nombre: "Escobedo", telefono: "81 4666-0190 / 81 2033-1183 al 1185", direccion: "Av. Las Industrias No. 300, Col. Parque Industrial, General Escobedo, N.L." },
+      { nombre: "Guadalupe", telefono: "81 2020-3382 / 4705", direccion: "Av. Lázaro Cárdenas No. 809, 2° piso, Col. Ignacio Zaragoza, Guadalupe, N.L." },
+      { nombre: "Monterrey (Edificio Central)", telefono: "81 2033-1557", direccion: "Matamoros 311, Piso 4, Centro de Monterrey, N.L." },
+      { nombre: "Monterrey (Unidad de Defensa de la Mujer)", telefono: "81 2020-5685", direccion: "Allende 302, Centro, Monterrey, N.L." },
+      { nombre: "Monterrey (Zacatepec)", telefono: "81 2033-1161, 1162 y 1163", direccion: "Zacatepec No. 103, Col. Valle Morelos, Monterrey, N.L." },
+      { nombre: "San Nicolás de los Garza", telefono: "81 2556-1053, 1054, 1055", direccion: "Francisco Goitia 502, Col. Valle Dorado, San Nicolás de los Garza, N.L." },
+      { nombre: "Santa Catarina", telefono: "81 2033-4250 / 4251 / 81 1357-6212", direccion: "Av. Manuel Ordóñez 319-S, Villa de las Huertas (dentro del Distrito DIF Santa Catarina), N.L." },
+    ],
+  },
+  {
+    titulo: "Defensa en Proceso Penal",
+    oficinas: [
+      { nombre: "Escobedo", telefono: "81 4666-0190 / 81 2033-1183 al 1185", direccion: "Av. Las Industrias No. 300, Col. Parque Industrial, General Escobedo, N.L." },
+      { nombre: "Guadalupe", telefono: "81 2020-3382 / 4705", direccion: "Av. Lázaro Cárdenas No. 809, 2° piso, Col. Ignacio Zaragoza, Guadalupe, N.L." },
+      { nombre: "Monterrey (Centro)", telefono: "81 2020-5630", direccion: "Matamoros 311, Piso 2, Centro de Monterrey, N.L." },
+      { nombre: "Monterrey (Zacatepec)", telefono: "81 2033-1161, 1162 y 1163", direccion: "Zacatepec No. 103, Col. Valle Morelos, Monterrey, N.L." },
+      { nombre: "San Pedro Garza García", telefono: "81 2020-8735", direccion: "Corregidora #507, piso 1, Centro, San Pedro Garza García, N.L." },
+      { nombre: "San Nicolás de los Garza", telefono: "81 2556-1053, 1054, 1055", direccion: "Francisco Goitia 502, Col. Valle Dorado, San Nicolás de los Garza, N.L." },
+      { nombre: "Santa Catarina", telefono: "81 2033-4250 / 4251 / 81 1357-6212", direccion: "Av. Manuel Ordóñez 319-S, Villa de las Huertas (dentro del Distrito DIF Santa Catarina), N.L." },
+    ],
+  },
+  {
+    titulo: "Defensa en Segunda Instancia y Amparo",
+    oficinas: [
+      { nombre: "Monterrey", telefono: "81 2020-5681", direccion: "Allende 322, Centro de Monterrey, N.L." },
+    ],
+  },
+  {
+    titulo: "Civil, Mercantil y Justicia Administrativa",
+    oficinas: [
+      { nombre: "Monterrey", telefono: "81 2020-5631", direccion: "Matamoros 311 Ote., Piso 7, Centro de Monterrey, N.L." },
+    ],
+  },
+  {
+    titulo: "Defensa Especializada en Justicia para Adolescentes",
+    oficinas: [
+      { nombre: "Monterrey", telefono: "81 2556-9207 / 81 2556-9206", direccion: "Constituyentes de N.L. #200, Local 1, Col. Parque Industrial Regiomontano, Monterrey, N.L." },
+      { nombre: "Monterrey (ALAMEY)", telefono: "—", direccion: "Ladrón de Guevara y Arista s/n, Col. del Norte, Monterrey, N.L." },
+    ],
+  },
+  {
+    titulo: "Dirección de lo Familiar",
+    oficinas: [
+      { nombre: "Monterrey", telefono: "81 2020-5662", direccion: "Matamoros 311 Ote., Piso 3, Centro de Monterrey, N.L." },
+      { nombre: "San Nicolás de los Garza", telefono: "81 1969-0537 / 81 2033-3363, 3364", direccion: "Jorge González Camarena #501, Col. Valle Dorado, San Nicolás de los Garza, N.L." },
+      { nombre: "Guadalupe", telefono: "81 2033-3360, 3361, 3362", direccion: "Av. Lázaro Cárdenas No. 809, 2° piso, Col. Ignacio Zaragoza, Guadalupe, N.L." },
+      { nombre: "García", telefono: "81 2033-1180, 1181, 1182", direccion: "Calle General Treviño 408, Centro, Villa de García, N.L." },
+      { nombre: "San Pedro", telefono: "81 2020-3375 / 81 2315-0747", direccion: "Corregidora #507, planta baja, Centro, San Pedro Garza García (dentro del Palacio de Justicia), N.L." },
+    ],
+  },
+  {
+    titulo: "Dirección Foránea",
+    oficinas: [
+      { nombre: "Monterrey", telefono: "81 2020-5678", direccion: "Matamoros 311 Ote., Piso 4, Centro de Monterrey, N.L." },
+      { nombre: "Linares", telefono: "82 1212-8455", direccion: "Palacio de Justicia (PGJ), Av. Prol. Hidalgo cruz con Av. Industria Alimenticia s/n, Col. Parque Industrial, Linares, N.L." },
+      { nombre: "Dr. Arroyo", telefono: "48 8888-0977", direccion: "Francisco Merla y Lerdo de Tejada s/n (Palacio de Justicia), Dr. Arroyo, N.L." },
+      { nombre: "Cerralvo", telefono: "89 2975-0712", direccion: "Jiménez #103, Centro, Cerralvo, N.L." },
+      { nombre: "Sabinas Hidalgo", telefono: "82 4242-2124", direccion: "Hidalgo #100, Barrio El Aguacate, Sabinas Hidalgo, N.L." },
+      { nombre: "Villaldama", telefono: "82 9245-0375", direccion: "Zaragoza s/n, entre Allende y Rayón, dentro de las oficinas del Poder Judicial, 2° piso, Villaldama, N.L." },
+      { nombre: "Montemorelos", telefono: "82 6107-0030", direccion: "Capitán Alonso de León Km. 3, Demarcación Las Lilas, dentro del Palacio de Justicia, Montemorelos, N.L." },
+      { nombre: "Galeana", telefono: "82 6213-0535", direccion: "Cuauhtémoc s/n, Centro, entre 5 de Mayo y Constitución, Galeana, N.L." },
+      { nombre: "China", telefono: "82 3232-0662", direccion: "Carretera Monterrey-Reynosa Km. 112, China, N.L." },
+    ],
+  },
 ];
 
 // Useful external links for citizens (CURP, actas, etc.) — referenced by the assistant.

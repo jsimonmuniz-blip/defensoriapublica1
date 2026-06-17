@@ -6,8 +6,7 @@ import {
   tramites,
   legislacion,
   transparencia,
-  oficinasMetro,
-  oficinasForaneas,
+  directorio,
   enlacesUtiles,
   docPublic as doc,
   CITAS_URL,
@@ -23,8 +22,15 @@ function buildKnowledge() {
   const transp = transparencia
     .map((g) => `${g.grupo}:\n` + g.items.map((i) => `  - ${i.titulo}: ${doc(i.file)}`).join("\n"))
     .join("\n");
-  const metro = oficinasMetro.map((o) => `- ${o.nombre} | Tel: ${o.telefono} | ${o.direccion}`).join("\n");
-  const foraneas = oficinasForaneas.map((o) => `- ${o.nombre} | Tel: ${o.telefono} | ${o.direccion}`).join("\n");
+  const dir = directorio
+    .map(
+      (g) =>
+        `${g.titulo}${g.sede ? ` (${g.sede})` : ""}:\n` +
+        g.oficinas
+          .map((o) => `  - ${o.nombre} | Tel: ${o.telefono}${o.piso ? ` | ${o.piso}` : ""}${o.direccion ? ` | ${o.direccion}` : ""}`)
+          .join("\n"),
+    )
+    .join("\n");
   const enlaces = enlacesUtiles.map((e) => `- ${e.titulo}: ${e.url} — ${e.desc}`).join("\n");
 
   return `
@@ -52,11 +58,8 @@ ${leyes}
 ## Transparencia y documentos:
 ${transp}
 
-## Oficinas — Área Metropolitana:
-${metro}
-
-## Oficinas — Área Foránea:
-${foraneas}
+## Directorio de oficinas (teléfonos y direcciones por área de defensa):
+${dir}
 
 ## Agendar una cita:
 ${CITAS_URL}
