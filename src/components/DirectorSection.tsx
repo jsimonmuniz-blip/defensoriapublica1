@@ -30,7 +30,7 @@ export function DirectorSection() {
           <svg width="0" height="0" className="absolute" aria-hidden="true">
             <defs>
               <clipPath id="director-shield" clipPathUnits="objectBoundingBox">
-                <path d="M0.06,0 Q0,0 0,0.08 L0,0.55 Q0,0.82 0.5,1 Q1,0.82 1,0.55 L1,0.08 Q1,0 0.94,0 Z" />
+                <path d="M0.05,0 Q0,0 0,0.05 L0,0.52 Q0,0.80 0.42,0.95 Q0.48,0.965 0.5,1 Q0.52,0.965 0.58,0.95 Q1,0.80 1,0.52 L1,0.05 Q1,0 0.95,0 Z" />
               </clipPath>
             </defs>
           </svg>
