@@ -39,26 +39,26 @@ export function DirectorSection() {
           </div>
 
           <div className="text-center sm:text-left">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary-foreground">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 bg-white/25 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-primary-foreground">
               Administración 2021-2027
             </span>
-            <h2 className="mt-4 font-display text-2xl font-extrabold text-navy-foreground sm:text-3xl">
+            <h2 className="mt-4 font-display text-2xl font-extrabold text-primary-foreground [text-shadow:0_2px_10px_rgba(0,0,0,0.3)] sm:text-3xl">
               Carlos Manuel Cuevas Martínez
             </h2>
-            <p className="mt-2 text-base text-navy-foreground/85">
+            <p className="mt-2 text-base font-medium text-primary-foreground [text-shadow:0_1px_6px_rgba(0,0,0,0.25)]">
               Director General del Instituto de Defensoría Pública de Nuevo León
             </p>
 
             <div className="mt-5 flex flex-wrap justify-center gap-3 sm:justify-start">
               <a
                 href="tel:8120331548"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-navy-foreground transition-colors hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-white/90"
               >
                 <Phone className="h-4 w-4 text-primary" /> 8120331548
               </a>
               <a
                 href="mailto:defensoria.publica@idpnl.gob.mx"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-navy-foreground transition-colors hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-white/90"
               >
                 <Mail className="h-4 w-4 text-primary" /> defensoria.publica@idpnl.gob.mx
               </a>
@@ -66,10 +66,11 @@ export function DirectorSection() {
 
             <Dialog>
               <DialogTrigger asChild>
-                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.04]">
+                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary shadow-glow transition-transform hover:scale-[1.04]">
                   <UserRound className="h-4 w-4" /> Conóceme
                 </button>
               </DialogTrigger>
+
               <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
                 <DialogHeader>
                   <DialogTitle className="font-display text-2xl">
