@@ -13,6 +13,7 @@ import {
   CalendarCheck,
 } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { DirectorSection } from "@/components/DirectorSection";
 import { Section } from "@/components/blocks";
 import { site, mision, materias, enlacesUtiles, CITAS_URL } from "@/data/site";
 
