@@ -18,7 +18,6 @@ const GREETING =
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [showBubble, setShowBubble] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -29,15 +28,8 @@ export function Chatbot() {
 
   const isLoading = status === "submitted" || status === "streaming";
 
-  // Proactive help bubble after 5 seconds
-  useEffect(() => {
-    const id = setTimeout(() => setShowBubble(true), 5000);
-    return () => clearTimeout(id);
-  }, []);
-
   useEffect(() => {
     if (open) {
-      setShowBubble(false);
       setTimeout(() => inputRef.current?.focus(), 150);
     }
   }, [open]);
@@ -56,28 +48,9 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating launcher + proactive bubble */}
+      {/* Floating launcher */}
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {showBubble && !open && (
-            <motion.button
-              initial={{ opacity: 0, y: 16, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.9 }}
-              onClick={() => setOpen(true)}
-              className="relative max-w-[260px] rounded-2xl rounded-br-sm bg-card p-4 text-left shadow-elegant ring-1 ring-border"
-            >
-              <span className="absolute -right-1 -top-1 flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
-              </span>
-              <p className="text-sm font-semibold text-foreground">¡Hola! 👋</p>
-              <p className="mt-1 text-xs text-muted-foreground">
-                Soy el asistente virtual. ¿Necesitas ayuda con un trámite o servicio? Pregúntame lo que quieras.
-              </p>
-            </motion.button>
-          )}
-        </AnimatePresence>
+
 
         <AnimatePresence>
           {!open && (
