@@ -18,7 +18,7 @@ const directorBio = [
 
 export function DirectorSection() {
   return (
-    <section className="bg-gradient-navy">
+    <section className="bg-gradient-primary">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
