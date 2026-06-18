@@ -62,16 +62,16 @@ export function DirectorSection() {
               >
                 <Mail className="h-4 w-4 text-primary" /> defensoria.publica@idpnl.gob.mx
               </a>
-            </div>
 
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary shadow-glow transition-transform hover:scale-[1.04]">
-                  <UserRound className="h-4 w-4" /> Conóceme
-                </button>
-              </DialogTrigger>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-bold text-primary shadow-sm transition-colors hover:bg-white/90">
+                    <UserRound className="h-4 w-4" /> Conóceme
+                  </button>
+                </DialogTrigger>
 
-              <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+                <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">
+
                 <DialogHeader>
                   <DialogTitle className="font-display text-2xl">
                     Carlos Manuel Cuevas Martínez
@@ -107,9 +107,11 @@ export function DirectorSection() {
                     <p key={i}>{p}</p>
                   ))}
                 </div>
-              </DialogContent>
-            </Dialog>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
+
         </motion.div>
       </div>
     </section>
