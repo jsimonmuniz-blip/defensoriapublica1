@@ -25,12 +25,7 @@ const slides = [
   },
 ];
 
-const directorBio = [
-  "Estudió la Licenciatura en Derecho y Ciencias Sociales en la Universidad Autónoma de Nuevo León. Es Maestro en Derecho Penal con enfoque en el Sistema Penal Acusatorio por parte de la UANL. También participó en cursos y diplomados de formación internacional en California Western School of Law.",
-  "Se desarrolló profesionalmente como escribiente, Delegado del Ministerio Público y asistente del Director General de Averiguaciones Previas, además de ser Agente del Ministerio Público, Secretario Particular del C. Procurador General de Justicia del Estado de Nuevo León y Director de Bienes Asegurados recuperados e instrumentos del delito de la Procuraduría General de Justicia.",
-  "Así mismo, se desempeñó como Coordinador de la Oficina Ejecutiva de la Unidad de Inteligencia Financiera y Económica, Coordinador de Investigaciones y titular de la Unidad de Inteligencia Financiera y Económica en la Secretaría de Finanzas y Tesorería General, estos puestos por parte del Estado de Nuevo León.",
-  "Actualmente se desempeña como Director General del Instituto de Defensoría Pública del Estado de Nuevo León.",
-];
+
 
 export function HeroCarousel() {
   const [index, setIndex] = useState(0);
