@@ -107,9 +107,11 @@ export function DirectorSection() {
                     <p key={i}>{p}</p>
                   ))}
                 </div>
-              </DialogContent>
-            </Dialog>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
+
         </motion.div>
       </div>
     </section>
