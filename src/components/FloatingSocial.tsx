@@ -12,7 +12,7 @@ export function FloatingSocial() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Síguenos en Facebook"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white shadow-elegant transition-transform hover:scale-110"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-navy-foreground shadow-elegant transition-transform hover:scale-110"
       >
         <Facebook className="h-6 w-6" fill="currentColor" stroke="none" />
       </a>
@@ -21,10 +21,11 @@ export function FloatingSocial() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Síguenos en Instagram"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white shadow-elegant transition-transform hover:scale-110"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-navy-foreground shadow-elegant transition-transform hover:scale-110"
       >
         <Instagram className="h-6 w-6" />
       </a>
+
     </div>
   );
 }
