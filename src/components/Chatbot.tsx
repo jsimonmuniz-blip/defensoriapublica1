@@ -18,7 +18,6 @@ const GREETING =
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [showBubble, setShowBubble] = useState(false);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -29,15 +28,8 @@ export function Chatbot() {
 
   const isLoading = status === "submitted" || status === "streaming";
 
-  // Proactive help bubble after 5 seconds
-  useEffect(() => {
-    const id = setTimeout(() => setShowBubble(true), 5000);
-    return () => clearTimeout(id);
-  }, []);
-
   useEffect(() => {
     if (open) {
-      setShowBubble(false);
       setTimeout(() => inputRef.current?.focus(), 150);
     }
   }, [open]);
