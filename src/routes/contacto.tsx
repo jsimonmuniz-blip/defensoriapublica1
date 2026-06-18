@@ -28,29 +28,30 @@ function Contacto() {
             href={CITAS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-3xl bg-gradient-primary p-8 text-primary-foreground shadow-glow transition-transform hover:-translate-y-1"
+            className="group rounded-3xl border border-border bg-card p-8 shadow-card transition-transform hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow"
           >
-            <CalendarCheck className="h-10 w-10" />
-            <h3 className="mt-4 font-display text-xl font-bold">Agendar una cita</h3>
-            <p className="mt-2 text-sm text-primary-foreground/90">Reserva tu cita en línea para recibir atención jurídica gratuita.</p>
+            <CalendarCheck className="h-10 w-10 text-primary" />
+            <h3 className="mt-4 font-display text-xl font-bold text-foreground">Agendar una cita</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Reserva tu cita en línea para recibir atención jurídica gratuita.</p>
           </a>
 
           <a
             href={CONSULTA_CITA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-3xl border border-primary/30 bg-primary/10 p-8 shadow-card transition-transform hover:-translate-y-1"
+            className="group rounded-3xl border border-border bg-card p-8 shadow-card transition-transform hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow"
           >
             <ClipboardList className="h-10 w-10 text-primary" />
             <h3 className="mt-4 font-display text-xl font-bold text-foreground">Consultar mi cita</h3>
             <p className="mt-2 text-sm text-muted-foreground">¿Ya tienes una cita? Consulta el estatus de tu solicitud.</p>
           </a>
 
-          <div className="rounded-3xl bg-gradient-primary p-8 text-primary-foreground shadow-glow">
-            <MessageCircle className="h-10 w-10" />
-            <h3 className="mt-4 font-display text-xl font-bold">Pregúntale a Dipi</h3>
-            <p className="mt-2 text-sm text-primary-foreground/90">Nuestro asistente virtual resuelve tus dudas sobre trámites y servicios al instante, abajo a la derecha.</p>
+          <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
+            <MessageCircle className="h-10 w-10 text-primary" />
+            <h3 className="mt-4 font-display text-xl font-bold text-foreground">Pregúntale a Dipi</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Nuestro asistente virtual resuelve tus dudas sobre trámites y servicios al instante, abajo a la derecha.</p>
           </div>
+
 
         </div>
 
