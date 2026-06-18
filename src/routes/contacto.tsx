@@ -39,18 +39,19 @@ function Contacto() {
             href={CONSULTA_CITA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-3xl border border-border bg-card p-8 shadow-card transition-transform hover:-translate-y-1"
+            className="rounded-3xl border border-primary/30 bg-primary/10 p-8 shadow-card transition-transform hover:-translate-y-1"
           >
             <ClipboardList className="h-10 w-10 text-primary" />
             <h3 className="mt-4 font-display text-xl font-bold text-foreground">Consultar mi cita</h3>
             <p className="mt-2 text-sm text-muted-foreground">¿Ya tienes una cita? Consulta el estatus de tu solicitud.</p>
           </a>
 
-          <div className="rounded-3xl bg-gradient-navy p-8 text-navy-foreground shadow-elegant">
-            <MessageCircle className="h-10 w-10 text-primary" />
+          <div className="rounded-3xl bg-gradient-primary p-8 text-primary-foreground shadow-glow">
+            <MessageCircle className="h-10 w-10" />
             <h3 className="mt-4 font-display text-xl font-bold">Pregúntale a Dipi</h3>
-            <p className="mt-2 text-sm text-navy-foreground/85">Nuestro asistente virtual resuelve tus dudas sobre trámites y servicios al instante, abajo a la derecha.</p>
+            <p className="mt-2 text-sm text-primary-foreground/90">Nuestro asistente virtual resuelve tus dudas sobre trámites y servicios al instante, abajo a la derecha.</p>
           </div>
+
         </div>
 
         <div className="mt-10 grid gap-6 rounded-3xl border border-border bg-card p-8 shadow-card sm:grid-cols-2">
