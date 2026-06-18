@@ -27,9 +27,16 @@ export function DirectorSection() {
           transition={{ duration: 0.6 }}
           className="grid items-center gap-8 rounded-3xl bg-navy-foreground/5 p-6 ring-1 ring-white/10 sm:grid-cols-[auto_1fr] sm:p-8"
         >
+          <svg width="0" height="0" className="absolute" aria-hidden="true">
+            <defs>
+              <clipPath id="director-shield" clipPathUnits="objectBoundingBox">
+                <path d="M0.06,0 Q0,0 0,0.08 L0,0.55 Q0,0.82 0.5,1 Q1,0.82 1,0.55 L1,0.08 Q1,0 0.94,0 Z" />
+              </clipPath>
+            </defs>
+          </svg>
           <div
-            className="mx-auto w-44 overflow-hidden bg-primary/20 shadow-glow ring-4 ring-white/20 sm:mx-0 sm:w-52"
-            style={{ clipPath: "polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%)" }}
+            className="mx-auto w-44 overflow-hidden bg-primary/20 shadow-glow sm:mx-0 sm:w-52"
+            style={{ clipPath: "url(#director-shield)" }}
           >
             <img
               src={directorPhoto.url}
@@ -37,6 +44,7 @@ export function DirectorSection() {
               className="aspect-[3/4] w-full object-cover object-top"
             />
           </div>
+
 
           <div className="text-center sm:text-left">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 bg-white/25 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-primary-foreground">
