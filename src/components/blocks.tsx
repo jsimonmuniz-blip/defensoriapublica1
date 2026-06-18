@@ -6,7 +6,7 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title
     <section className="bg-gradient-primary">
       <div className="mx-auto flex max-w-7xl flex-col justify-center px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         {eyebrow && (
-          <span className="mb-3 inline-block rounded-full bg-white/25 px-4 py-1 text-sm font-semibold text-primary-foreground">
+          <span className="mb-3 inline-block w-fit rounded-full bg-white/25 px-4 py-1 text-sm font-semibold text-primary-foreground">
             {eyebrow}
           </span>
         )}
