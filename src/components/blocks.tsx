@@ -3,15 +3,15 @@ import type { ReactNode } from "react";
 
 export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title: string; subtitle?: string }) {
   return (
-    <section className="bg-gradient-navy">
+    <section className="bg-gradient-primary">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         {eyebrow && (
-          <span className="mb-3 inline-block rounded-full bg-primary/20 px-4 py-1 text-sm font-semibold text-primary">
+          <span className="mb-3 inline-block rounded-full bg-white/25 px-4 py-1 text-sm font-semibold text-primary-foreground">
             {eyebrow}
           </span>
         )}
-        <h1 className="text-balance font-display text-4xl font-extrabold text-navy-foreground sm:text-5xl">{title}</h1>
-        {subtitle && <p className="mt-4 max-w-2xl text-lg text-navy-foreground/80">{subtitle}</p>}
+        <h1 className="text-balance font-display text-4xl font-extrabold text-primary-foreground sm:text-5xl">{title}</h1>
+        {subtitle && <p className="mt-4 max-w-2xl text-lg text-primary-foreground/90">{subtitle}</p>}
       </div>
     </section>
   );
