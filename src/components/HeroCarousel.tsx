@@ -62,7 +62,7 @@ export function HeroCarousel() {
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
 
-      <div className="relative mx-auto grid h-full min-h-[inherit] max-w-7xl grid-cols-1 items-center gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
+      <div className="relative mx-auto grid h-full min-h-[inherit] max-w-7xl grid-cols-1 items-center gap-12 px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-center">
           <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-sm font-semibold text-primary-foreground backdrop-blur">
             {site.shortName} · Servicios 100% gratuitos
