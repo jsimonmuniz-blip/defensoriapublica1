@@ -34,7 +34,7 @@ export function FloatingSocial() {
         aria-label="Síguenos en YouTube"
         className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-navy-foreground shadow-elegant transition-transform hover:scale-110"
       >
-        <Youtube className="h-6 w-6" fill="currentColor" stroke="none" />
+        <Youtube className="h-6 w-6" />
       </a>
     </div>
   );
