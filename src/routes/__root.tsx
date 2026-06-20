@@ -16,6 +16,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Chatbot } from "../components/Chatbot";
 import { FloatingSocial } from "../components/FloatingSocial";
+import { AccessibilityWidget } from "../components/AccessibilityWidget";
 
 function NotFoundComponent() {
   return (
@@ -146,6 +147,7 @@ function RootComponent() {
           <Footer />
           <Chatbot />
           <FloatingSocial />
+          <AccessibilityWidget />
         </div>
       )}
     </QueryClientProvider>
