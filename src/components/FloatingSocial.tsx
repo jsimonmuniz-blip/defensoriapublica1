@@ -1,8 +1,10 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
-const FACEBOOK_URL = "https://www.facebook.com/share/1Cvw6VPpXi/";
+const FACEBOOK_URL = "https://www.facebook.com/share/1D2LPgaefV/?mibextid=wwXIfr";
 const INSTAGRAM_URL =
-  "https://www.instagram.com/institutodefensoriapublica?igsh=M20wdW81YTVjaHc5";
+  "https://www.instagram.com/institutodefensoriapublica?igsh=MW9qbDZqdGljaXd5bw==";
+const YOUTUBE_URL =
+  "https://youtube.com/@institutodefensoriapublica?si=15NSM3uM14c0pBxJ";
 
 export function FloatingSocial() {
   return (
@@ -25,7 +27,15 @@ export function FloatingSocial() {
       >
         <Instagram className="h-6 w-6" />
       </a>
-
+      <a
+        href={YOUTUBE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Síguenos en YouTube"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-navy text-navy-foreground shadow-elegant transition-transform hover:scale-110"
+      >
+        <Youtube className="h-6 w-6" fill="currentColor" stroke="none" />
+      </a>
     </div>
   );
 }
