@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Accessibility, Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
+import { Eye, Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
 
 const STORAGE_KEY = "idpnl-a11y";
 const BASE_FONT_PX = 16;
@@ -78,7 +78,7 @@ export function AccessibilityWidget() {
   const fontPercent = Math.round((1 + settings.level * STEP) * 100);
 
   return (
-    <div ref={panelRef} className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+    <div ref={panelRef} className="fixed bottom-24 right-5 z-50 flex flex-col items-end gap-3">
       {open && (
         <div
           role="dialog"
@@ -147,9 +147,9 @@ export function AccessibilityWidget() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Opciones de accesibilidad"
         aria-expanded={open}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform hover:scale-110"
+        className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform hover:scale-110"
       >
-        <Accessibility className="h-6 w-6" />
+        <Eye className="h-7 w-7" />
       </button>
     </div>
   );
