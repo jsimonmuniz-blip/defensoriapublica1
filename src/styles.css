@@ -219,6 +219,15 @@
   }
 }
 
+/* Accessibility: high-contrast mode toggled by the accessibility widget */
+html.a11y-contrast {
+  filter: contrast(1.35) saturate(1.15);
+}
+html.a11y-contrast img,
+html.a11y-contrast video {
+  filter: contrast(0.95);
+}
+
 /* Markdown rendering inside the chatbot bubbles */
 .prose-chat p { margin: 0.25rem 0; line-height: 1.5; }
 .prose-chat p:first-child { margin-top: 0; }
