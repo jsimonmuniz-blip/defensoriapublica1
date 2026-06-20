@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, CalendarCheck, MessageCircle, ClipboardList } from "lucide-react";
+import { Phone, MapPin, CalendarCheck, MessageCircle, ClipboardList, ShieldAlert } from "lucide-react";
 import { PageHero, Section } from "@/components/blocks";
 import { CITAS_URL, CONSULTA_CITA_URL } from "@/data/site";
 
