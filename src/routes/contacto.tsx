@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, CalendarCheck, MessageCircle, ClipboardList } from "lucide-react";
+import { Phone, MapPin, CalendarCheck, MessageCircle, ClipboardList, ShieldAlert } from "lucide-react";
 import { PageHero, Section } from "@/components/blocks";
 import { CITAS_URL, CONSULTA_CITA_URL } from "@/data/site";
 
@@ -73,7 +73,36 @@ function Contacto() {
             </p>
           </div>
         </div>
+
+        <div className="mt-6 rounded-3xl border border-border bg-card p-8 shadow-card">
+          <div className="flex items-start gap-4">
+            <div className="rounded-2xl bg-secondary p-3">
+              <ShieldAlert className="h-8 w-8 text-primary" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-xl font-bold text-foreground">Quejas y sugerencias del ciudadano</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                ¿Tienes una queja, denuncia o sugerencia sobre la atención recibida? Comunícate con nuestra Unidad de Atención Ciudadana. Tu opinión nos ayuda a mejorar el servicio.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="tel:8113399602"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-blue px-5 py-2.5 font-semibold text-navy-foreground shadow-blue"
+                >
+                  <Phone className="h-4 w-4" /> 81 1339-9602
+                </a>
+                <a
+                  href="mailto:atencionciudadana@idpnl.gob.mx?subject=Queja%20o%20sugerencia%20del%20ciudadano"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 px-5 py-2.5 font-semibold text-primary transition-colors hover:bg-secondary"
+                >
+                  <MessageCircle className="h-4 w-4" /> Enviar por correo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </Section>
+
     </>
   );
 }
