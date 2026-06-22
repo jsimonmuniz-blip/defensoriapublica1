@@ -6,9 +6,9 @@ const INSTAGRAM_URL =
 const YOUTUBE_URL =
   "https://youtube.com/@institutodefensoriapublica?si=15NSM3uM14c0pBxJ";
 
-export function FloatingSocial() {
   return (
-    <div className="fixed bottom-5 left-5 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
+
       <a
         href={FACEBOOK_URL}
         target="_blank"

@@ -49,7 +49,8 @@ export function Chatbot() {
   return (
     <>
       {/* Floating launcher */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-5 left-5 z-50 flex flex-col items-end gap-3">
+
 
 
         <AnimatePresence>
@@ -78,7 +79,8 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ type: "spring", damping: 26, stiffness: 300 }}
-            className="fixed bottom-5 right-5 z-50 flex h-[min(620px,85vh)] w-[min(400px,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl bg-card shadow-elegant ring-1 ring-border"
+            className="fixed bottom-5 left-5 z-50 flex h-[min(620px,85vh)] w-[min(400px,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl bg-card shadow-elegant ring-1 ring-border"
+
           >
             {/* Header */}
             <div className="flex items-center gap-3 bg-gradient-navy px-4 py-3.5 text-navy-foreground">

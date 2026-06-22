@@ -78,7 +78,8 @@ export function AccessibilityWidget() {
   const fontPercent = Math.round((1 + settings.level * STEP) * 100);
 
   return (
-    <div ref={panelRef} className="fixed bottom-24 right-5 z-50 flex flex-col items-end gap-3">
+    <div ref={panelRef} className="fixed bottom-24 left-5 z-50 flex flex-col items-end gap-3">
+
       {open && (
         <div
           role="dialog"
