@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Eye, Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
+import { Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
+import accessibilityIconAsset from "@/assets/accessibility-icon.webp.asset.json";
 
 const STORAGE_KEY = "idpnl-a11y";
 const BASE_FONT_PX = 16;
@@ -147,9 +148,13 @@ export function AccessibilityWidget() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Opciones de accesibilidad"
         aria-expanded={open}
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow transition-transform hover:scale-110"
+        className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-background shadow-glow transition-transform hover:scale-110"
       >
-        <Eye className="h-7 w-7" />
+        <img
+          src={accessibilityIconAsset.url}
+          alt=""
+          className="h-full w-full object-cover"
+        />
       </button>
     </div>
   );
