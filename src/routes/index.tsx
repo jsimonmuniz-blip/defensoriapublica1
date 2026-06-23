@@ -5,11 +5,8 @@ import {
   Users,
   HandHeart,
   ShieldCheck,
-  FileText,
   MapPin,
   ArrowRight,
-  IdCard,
-  ScrollText,
   CalendarCheck,
 } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
