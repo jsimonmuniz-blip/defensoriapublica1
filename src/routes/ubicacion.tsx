@@ -24,7 +24,7 @@ export const Route = createFileRoute("/ubicacion")({
   component: Ubicacion,
 });
 
-function OficinaCard({ o }: { o: Oficina }) {
+function OficinaCard({ o, sede }: { o: Oficina; sede?: string }) {
   const isMobile = useIsMobile();
   const card = (
     <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-1">
@@ -47,9 +47,10 @@ function OficinaCard({ o }: { o: Oficina }) {
     </div>
   );
 
-  if (!o.direccion) return card;
+  const mapAddress = o.direccion || sede;
+  if (!mapAddress) return card;
 
-  const query = encodeURIComponent(`${o.nombre}, ${o.direccion}`);
+  const query = encodeURIComponent(`${o.nombre}, ${mapAddress}`);
   const embedSrc = `https://www.google.com/maps?q=${query}&output=embed`;
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${query}`;
 
@@ -110,7 +111,7 @@ function Grupo({ g }: { g: DirectorioGrupo }) {
       {g.sede ? <p className="mb-5 mt-3 text-sm text-muted-foreground">{g.sede}</p> : <div className="mb-5" />}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {g.oficinas.map((o) => (
-          <OficinaCard key={`${g.titulo}-${o.nombre}`} o={o} />
+          <OficinaCard key={`${g.titulo}-${o.nombre}`} o={o} sede={g.sede} />
         ))}
       </div>
     </div>
