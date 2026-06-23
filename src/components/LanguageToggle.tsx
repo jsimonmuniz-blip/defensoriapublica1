@@ -19,18 +19,21 @@ function getCurrentLang(): Lang {
 }
 
 function setLangCookie(lang: Lang) {
+  // Always set an explicit value: "/es/en" to translate to English, or
+  // "/es/es" to force the original Spanish. Setting "/es/es" (rather than
+  // deleting the cookie) reliably reverts Google Translate, which otherwise
+  // keeps the page translated after a plain cookie removal.
   const value = `/es/${lang}`;
   const host = window.location.hostname;
-  // Clear then set across all reasonable domain scopes so the widget picks it up.
   const expire = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  // Clear any stale cookie across every domain scope first.
   document.cookie = `googtrans=;path=/;${expire}`;
   document.cookie = `googtrans=;path=/;domain=${host};${expire}`;
   document.cookie = `googtrans=;path=/;domain=.${host};${expire}`;
-  if (lang === "en") {
-    document.cookie = `googtrans=${value};path=/`;
-    document.cookie = `googtrans=${value};path=/;domain=${host}`;
-    document.cookie = `googtrans=${value};path=/;domain=.${host}`;
-  }
+  // Then set the desired value on all scopes so the widget picks it up.
+  document.cookie = `googtrans=${value};path=/`;
+  document.cookie = `googtrans=${value};path=/;domain=${host}`;
+  document.cookie = `googtrans=${value};path=/;domain=.${host}`;
   window.location.reload();
 }
 
