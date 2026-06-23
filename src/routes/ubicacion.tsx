@@ -111,7 +111,7 @@ function Grupo({ g }: { g: DirectorioGrupo }) {
       {g.sede ? <p className="mb-5 mt-3 text-sm text-muted-foreground">{g.sede}</p> : <div className="mb-5" />}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {g.oficinas.map((o) => (
-          <OficinaCard key={`${g.titulo}-${o.nombre}`} o={o} />
+          <OficinaCard key={`${g.titulo}-${o.nombre}`} o={o} sede={g.sede} />
         ))}
       </div>
     </div>
