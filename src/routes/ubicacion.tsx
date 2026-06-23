@@ -27,7 +27,7 @@ export const Route = createFileRoute("/ubicacion")({
 function OficinaCard({ o, sede }: { o: Oficina; sede?: string }) {
   const isMobile = useIsMobile();
   const card = (
-    <div data-map-card={mapAddress ? "true" : "false"} className="h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-1">
+    <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-1">
       <h3 className="font-display text-base font-bold text-foreground">{o.nombre}</h3>
       {o.telefono && o.telefono !== "—" ? (
         <a href={`tel:${o.telefono.replace(/[^0-9]/g, "")}`} className="mt-3 flex items-center gap-2 text-sm font-medium text-primary">
