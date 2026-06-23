@@ -169,7 +169,7 @@ export const directorio: DirectorioGrupo[] = [
     titulo: "Edificio Central IDPNL",
     sede: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León",
     oficinas: [
-      { nombre: "Dirección General", telefono: "81 2020-5604", piso: "Piso 6", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
+      { nombre: "Dirección General", telefono: "81 2020-5604", piso: "Piso 6" },
       { nombre: "Subdirección General", telefono: "81 2020-5613", piso: "Piso 6", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
       { nombre: "Dirección Administrativa", telefono: "81 2033-1579", piso: "Piso 6", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
       { nombre: "Unidad Jurídica", telefono: "81 2020-5676", piso: "Piso 1", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
