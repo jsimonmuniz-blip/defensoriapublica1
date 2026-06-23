@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, CalendarCheck } from "lucide-react";
 import logoAsset from "@/assets/logo-idpnl.png.asset.json";
 import { CITAS_URL } from "@/data/site";
+import { LanguageToggle } from "@/components/LanguageToggle";
 import { cn } from "@/lib/utils";
 
 const links = [
