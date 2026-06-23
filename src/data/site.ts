@@ -180,7 +180,7 @@ export const directorio: DirectorioGrupo[] = [
   {
     titulo: "Centro de Integración y Defensa Familiar",
     oficinas: [
-      { nombre: "Métodos Alternos", telefono: "81 1306-1203 / 81 1306-1204", direccion: "Planta baja" },
+      { nombre: "Métodos Alternos", telefono: "81 1306-1203 / 81 1306-1204", direccion: "Allende 302, Centro, Monterrey, N.L.", piso: "Planta baja" },
       { nombre: "Unidad de Elaboración de Demandas", telefono: "81 1306-1214", direccion: "Planta baja" },
       { nombre: "Unidad de Atención Ciudadana", telefono: "81 1339-9602", direccion: "Planta baja" },
     ],
