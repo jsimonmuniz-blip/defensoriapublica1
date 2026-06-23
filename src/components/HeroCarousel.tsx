@@ -5,7 +5,7 @@ import { CalendarCheck, ArrowRight } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
-import heroEdificio from "@/assets/hero-edificio.jpg.asset.json";
+import heroEdificio from "@/assets/hero-edificio.jpg";
 import { site, CITAS_URL } from "@/data/site";
 
 const slides = [
