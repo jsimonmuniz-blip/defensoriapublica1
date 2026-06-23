@@ -111,39 +111,6 @@ function Index() {
         </div>
       </Section>
 
-      {/* Trámites ciudadanos */}
-      <section className="bg-secondary">
-        <Section className="!py-16">
-          <div className="mb-8 max-w-2xl">
-            <span className="rounded-full bg-primary/15 px-4 py-1 text-sm font-semibold text-primary">Trámites comunes</span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold text-foreground sm:text-4xl">¿Necesitas tu CURP o un acta?</h2>
-            <p className="mt-3 text-muted-foreground">Te dejamos los enlaces oficiales. Y si tienes dudas, pregúntale a nuestro asistente.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {enlacesUtiles.map((e, i) => {
-              const Icon = tramitesIcon[i % tramitesIcon.length];
-              return (
-                <a
-                  key={e.titulo}
-                  href={e.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/40 hover:shadow-glow"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span>
-                    <span className="block font-semibold text-foreground group-hover:text-primary">{e.titulo}</span>
-                    <span className="mt-1 block text-sm text-muted-foreground">{e.desc}</span>
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-        </Section>
-      </section>
-
       {/* CTA */}
       <Section>
         <div className="overflow-hidden rounded-3xl bg-gradient-primary px-8 py-14 text-center shadow-glow sm:px-16">
