@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Eye, Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
+import { Minus, Plus, Contrast, RotateCcw, X } from "lucide-react";
+import accessibilityIconAsset from "@/assets/accessibility-icon.webp.asset.json";
 
 const STORAGE_KEY = "idpnl-a11y";
 const BASE_FONT_PX = 16;
