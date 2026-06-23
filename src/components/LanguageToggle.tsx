@@ -34,6 +34,65 @@ function setLangCookie(lang: Lang) {
   window.location.reload();
 }
 
+function USFlag({ className }: { className?: string }) {
+  // Simplified United States flag (13 stripes + 50-star canton)
+  const stars = [];
+  for (let row = 0; row < 9; row++) {
+    const count = row % 2 === 0 ? 6 : 5;
+    const xStart = row % 2 === 0 ? 0.7 : 1.4;
+    for (let col = 0; col < count; col++) {
+      stars.push(
+        <circle
+          key={`${row}-${col}`}
+          cx={xStart + col * 1.4}
+          cy={0.9 + row * 1.05}
+          r={0.35}
+          fill="#fff"
+        />
+      );
+    }
+  }
+
+  return (
+    <svg
+      viewBox="0 0 16 12"
+      className={className}
+      aria-hidden="true"
+      role="img"
+    >
+      <title>United States flag</title>
+      <rect width="16" height="12" fill="#fff" />
+      {Array.from({ length: 7 }).map((_, i) => (
+        <rect
+          key={i}
+          y={(i * 24) / 13}
+          width="16"
+          height={12 / 13}
+          fill="#B22234"
+        />
+      ))}
+      <rect width="6.4" height={Math.round((7 * 12) / 13)} fill="#3C3B6E" />
+      {stars}
+    </svg>
+  );
+}
+
+function MexicoFlag({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 12"
+      className={className}
+      aria-hidden="true"
+      role="img"
+    >
+      <title>Mexico flag</title>
+      <rect width="5.33" height="12" fill="#006847" />
+      <rect x="5.33" width="5.33" height="12" fill="#fff" />
+      <rect x="10.67" width="5.33" height="12" fill="#CE1126" />
+    </svg>
+  );
+}
+
 export function LanguageToggle({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState<Lang>("es");
 
@@ -65,6 +124,7 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
   }, []);
 
   const isEnglish = lang === "en";
+  const Flag = isEnglish ? MexicoFlag : USFlag;
 
   return (
     <>
@@ -75,7 +135,7 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
         aria-label={isEnglish ? "Ver en español" : "View in English"}
         className={`notranslate inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent hover:text-primary ${className}`}
       >
-        <span className="text-base leading-none">{isEnglish ? "🇲🇽" : "🇺🇸"}</span>
+        <Flag className="h-4 w-5 rounded-sm shadow-sm" />
         <span>{isEnglish ? "ES" : "EN"}</span>
       </button>
       <div id="google_translate_element" className="sr-only" aria-hidden="true" />
