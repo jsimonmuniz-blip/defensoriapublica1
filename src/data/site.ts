@@ -170,11 +170,11 @@ export const directorio: DirectorioGrupo[] = [
     sede: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León",
     oficinas: [
       { nombre: "Dirección General", telefono: "81 2020-5604", piso: "Piso 6" },
-      { nombre: "Subdirección General", telefono: "81 2020-5613", piso: "Piso 6", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
-      { nombre: "Dirección Administrativa", telefono: "81 2033-1579", piso: "Piso 6", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
-      { nombre: "Unidad Jurídica", telefono: "81 2020-5676", piso: "Piso 1", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
-      { nombre: "Asesoría Jurídica Telefónica", telefono: "81 1306-1135", piso: "Planta baja", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
-      { nombre: "Conmutador", telefono: "81 2020-5600", piso: "Sótano", direccion: "Matamoros 311 Ote., Centro de Monterrey, Nuevo León" },
+      { nombre: "Subdirección General", telefono: "81 2020-5613", piso: "Piso 6" },
+      { nombre: "Dirección Administrativa", telefono: "81 2033-1579", piso: "Piso 6" },
+      { nombre: "Unidad Jurídica", telefono: "81 2020-5676", piso: "Piso 1" },
+      { nombre: "Asesoría Jurídica Telefónica", telefono: "81 1306-1135", piso: "Planta baja" },
+      { nombre: "Conmutador", telefono: "81 2020-5600", piso: "Sótano" },
     ],
   },
   {
