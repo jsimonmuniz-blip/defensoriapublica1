@@ -12,7 +12,7 @@ import {
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { DirectorSection } from "@/components/DirectorSection";
 import { Section } from "@/components/blocks";
-import { site, mision, materias, enlacesUtiles, CITAS_URL } from "@/data/site";
+import { site, mision, materias, CITAS_URL } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,8 +30,6 @@ const valores = [
   { icon: Scale, title: "Defensa integral", desc: "Atención adecuada, oportuna, técnica y competente en cada caso." },
   { icon: Users, title: "Para todos", desc: "Énfasis en personas de escasos recursos y grupos vulnerables." },
 ];
-
-const tramitesIcon = [IdCard, ScrollText, FileText, MapPin];
 
 function Index() {
   return (
