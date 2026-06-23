@@ -5,17 +5,14 @@ import {
   Users,
   HandHeart,
   ShieldCheck,
-  FileText,
   MapPin,
   ArrowRight,
-  IdCard,
-  ScrollText,
   CalendarCheck,
 } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { DirectorSection } from "@/components/DirectorSection";
 import { Section } from "@/components/blocks";
-import { site, mision, materias, enlacesUtiles, CITAS_URL } from "@/data/site";
+import { site, mision, materias, CITAS_URL } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,8 +30,6 @@ const valores = [
   { icon: Scale, title: "Defensa integral", desc: "Atención adecuada, oportuna, técnica y competente en cada caso." },
   { icon: Users, title: "Para todos", desc: "Énfasis en personas de escasos recursos y grupos vulnerables." },
 ];
-
-const tramitesIcon = [IdCard, ScrollText, FileText, MapPin];
 
 function Index() {
   return (
@@ -110,39 +105,6 @@ function Index() {
           </Link>
         </div>
       </Section>
-
-      {/* Trámites ciudadanos */}
-      <section className="bg-secondary">
-        <Section className="!py-16">
-          <div className="mb-8 max-w-2xl">
-            <span className="rounded-full bg-primary/15 px-4 py-1 text-sm font-semibold text-primary">Trámites comunes</span>
-            <h2 className="mt-4 font-display text-3xl font-extrabold text-foreground sm:text-4xl">¿Necesitas tu CURP o un acta?</h2>
-            <p className="mt-3 text-muted-foreground">Te dejamos los enlaces oficiales. Y si tienes dudas, pregúntale a nuestro asistente.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {enlacesUtiles.map((e, i) => {
-              const Icon = tramitesIcon[i % tramitesIcon.length];
-              return (
-                <a
-                  key={e.titulo}
-                  href={e.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/40 hover:shadow-glow"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span>
-                    <span className="block font-semibold text-foreground group-hover:text-primary">{e.titulo}</span>
-                    <span className="mt-1 block text-sm text-muted-foreground">{e.desc}</span>
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-        </Section>
-      </section>
 
       {/* CTA */}
       <Section>

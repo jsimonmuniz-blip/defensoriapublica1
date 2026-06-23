@@ -57,7 +57,7 @@ export const antecedentes = [
   "Finalmente, el 6 de febrero de 2009 fue publicado el Decreto No. 330, expidiendo la Ley de Defensoría Pública para el Estado de Nuevo León, que entró en vigor el 7 de abril del mismo año.",
 ];
 
-export type Tramite = { nombre: string; file: string; categoria: "Familiar" | "Civil" | "Registro Civil" };
+export type Tramite = { nombre: string; file: string; categoria: "Familiar" | "Civil" };
 
 export const tramites: Tramite[] = [
   { nombre: "Adopción", file: "tramites/ADOPCION.pdf", categoria: "Familiar" },
@@ -69,8 +69,8 @@ export const tramites: Tramite[] = [
   { nombre: "Divorcio voluntario (acudir ambos)", file: "tramites/DIVORCIO VOLUNTARIO.pdf", categoria: "Familiar" },
   { nombre: "Enajenación de bienes", file: "tramites/ENAJENACION DE BIENES.pdf", categoria: "Civil" },
   { nombre: "Extinción del patrimonio familiar", file: "tramites/EXTINCION PATRIMONIO FAMILIAR.pdf", categoria: "Familiar" },
-  { nombre: "Identidad de fecha de nacimiento", file: "tramites/IDENTIDAD DE FECHA DE NACIMIENTO.pdf", categoria: "Registro Civil" },
-  { nombre: "Identidad de nombre", file: "tramites/IDENTIDAD DE NOMBRE.pdf", categoria: "Registro Civil" },
+  { nombre: "Identidad de fecha de nacimiento", file: "tramites/IDENTIDAD DE FECHA DE NACIMIENTO.pdf", categoria: "Civil" },
+  { nombre: "Identidad de nombre", file: "tramites/IDENTIDAD DE NOMBRE.pdf", categoria: "Civil" },
   { nombre: "Juicio sucesorio de transmisión hereditaria", file: "tramites/JUICIO DE TRANSMISION HEREDITARIA.pdf", categoria: "Civil" },
   { nombre: "Juicio ordinario civil sobre nulidad de matrimonio", file: "tramites/JUICIO ORD CIVIL SOBRE NULIDAD MATRIMONIO.pdf", categoria: "Familiar" },
   { nombre: "Juicio sucesorio de intestado", file: "tramites/JUICIO SUCESORIO DE INTESTADO.pdf", categoria: "Civil" },
@@ -80,15 +80,15 @@ export const tramites: Tramite[] = [
   { nombre: "Medidas provisionales sobre declaración de ausencia", file: "tramites/MEDIDAS PROVISIONALES DE DECLARACION DE AUSENCIA.pdf", categoria: "Civil" },
   { nombre: "Medidas de apoyo y salvaguardia para personas con discapacidad funcional", file: "tramites/MEDIDAS DE APOYO Y SALVAGUARDIA PARA PERSONAS CON DISCAPACIDAD FUNCIONAL.pdf", categoria: "Familiar" },
   { nombre: "Nombramiento de tutor o estado de interdicción", file: "tramites/NOMBRAMIENTO DE TUTOR O ESTADO DE INTERDICCION.pdf", categoria: "Familiar" },
-  { nombre: "Nulidad de acta de nacimiento", file: "tramites/NULIDAD DE ACTA DE NACIMIENTO.pdf", categoria: "Registro Civil" },
+  { nombre: "Nulidad de acta de nacimiento", file: "tramites/NULIDAD DE ACTA DE NACIMIENTO.pdf", categoria: "Civil" },
   { nombre: "Oral de alimentos", file: "tramites/ORAL DE ALIMENTOS.pdf", categoria: "Familiar" },
   { nombre: "Pérdida de la patria potestad", file: "tramites/PERDIDA DE LA PATRIA POTESTAD.pdf", categoria: "Familiar" },
   { nombre: "Reconocimiento, desconocimiento y contradicción de paternidad", file: "tramites/RECONCIMIENTO, DESCONOCIMIENTO Y CONTRADICCION DE PATERNIDAD.pdf", categoria: "Familiar" },
-  { nombre: "Rectificación de acta de defunción", file: "tramites/RECTIFICACION ACTA DE DEFUNCION.pdf", categoria: "Registro Civil" },
-  { nombre: "Rectificación de acta de matrimonio", file: "tramites/RECTIFICACION ACTA DE MATRIMONIO.pdf", categoria: "Registro Civil" },
-  { nombre: "Rectificación de acta de nacimiento", file: "tramites/RECTIFICACION ACTA DE NACIMIENTO.pdf", categoria: "Registro Civil" },
-  { nombre: "Registro extemporáneo de defunción", file: "tramites/REGISTRO EXTEMPORANEO DE DEFUNCION.pdf", categoria: "Registro Civil" },
-  { nombre: "Registro extemporáneo de nacimiento", file: "tramites/REGISTRO EXTEMPORANEO.pdf", categoria: "Registro Civil" },
+  { nombre: "Rectificación de acta de defunción", file: "tramites/RECTIFICACION ACTA DE DEFUNCION.pdf", categoria: "Civil" },
+  { nombre: "Rectificación de acta de matrimonio", file: "tramites/RECTIFICACION ACTA DE MATRIMONIO.pdf", categoria: "Civil" },
+  { nombre: "Rectificación de acta de nacimiento", file: "tramites/RECTIFICACION ACTA DE NACIMIENTO.pdf", categoria: "Civil" },
+  { nombre: "Registro extemporáneo de defunción", file: "tramites/REGISTRO EXTEMPORANEO DE DEFUNCION.pdf", categoria: "Civil" },
+  { nombre: "Registro extemporáneo de nacimiento", file: "tramites/REGISTRO EXTEMPORANEO.pdf", categoria: "Civil" },
   { nombre: "Restitución de guarda y custodia", file: "tramites/RESTITUCION DE GUARDA Y CUSTODIA.pdf", categoria: "Familiar" },
   { nombre: "Separación cautelar de menores", file: "tramites/SEPARACION CAUTELAR DE MENORES.pdf", categoria: "Familiar" },
   { nombre: "Separación cautelar de personas", file: "tramites/SEPARACION CAUTELAR DE PERSONAS.pdf", categoria: "Familiar" },

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/tramites")({
   component: Tramites,
 });
 
-const categorias = ["Todos", "Familiar", "Civil", "Registro Civil"] as const;
+const categorias = ["Todos", "Familiar", "Civil"] as const;
 
 function Tramites() {
   const [query, setQuery] = useState("");

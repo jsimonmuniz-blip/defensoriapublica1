@@ -7,14 +7,14 @@ import { X, Send, Sparkles } from "lucide-react";
 import dipi from "@/assets/dipi-mascot.png";
 
 const SUGGESTIONS = [
-  "¿Cómo saco mi CURP?",
-  "¿Cómo obtengo un acta de nacimiento?",
   "Quiero asesoría de divorcio",
+  "¿Qué servicios ofrecen?",
+  "¿Cómo agendo una cita?",
   "¿Dónde están sus oficinas?",
 ];
 
 const GREETING =
-  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas como sacar tu CURP o un acta de nacimiento. ¿En qué te apoyo?";
+  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas legales. ¿En qué te apoyo?";
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
