@@ -24,6 +24,11 @@ const slides = [
     title: "Estamos cerca de ti en todo el Estado",
     subtitle: "Más de 30 oficinas en el área metropolitana y municipios foráneos listas para atenderte.",
   },
+  {
+    img: heroEdificio.url,
+    title: "Instituto de Defensoría Pública",
+    subtitle: "Edificio Central — atención cercana, profesional y gratuita para las familias de Nuevo León.",
+  },
 ];
 
 
