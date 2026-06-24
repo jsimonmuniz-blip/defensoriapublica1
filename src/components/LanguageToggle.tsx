@@ -126,9 +126,6 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     }
   }, []);
 
-  const isEnglish = lang === "en";
-  const Flag = isEnglish ? MexicoFlag : USFlag;
-
   return (
     <div
       className={`notranslate inline-flex items-center gap-1 rounded-full border border-border bg-card p-1 text-sm font-semibold text-foreground ${className}`}
