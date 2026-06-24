@@ -15,8 +15,15 @@ declare global {
 function getCurrentLang(): Lang {
   if (typeof document === "undefined") return "es";
   const m = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
-  return m && m[1] === "en" ? "en" : "es";
+  if (m) return m[1] === "en" ? "en" : "es";
+  // Fall back to the stored preference when the cookie is missing.
+  try {
+    return window.localStorage.getItem("preferred-lang") === "en" ? "en" : "es";
+  } catch {
+    return "es";
+  }
 }
+
 
 function setLangCookie(lang: Lang) {
   // Always set an explicit value: "/es/en" to translate to English, or
