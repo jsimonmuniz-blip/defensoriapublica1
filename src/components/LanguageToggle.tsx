@@ -115,7 +115,23 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState<Lang>("es");
 
   useEffect(() => {
-    setLang(getCurrentLang());
+    const current = getCurrentLang();
+    setLang(current);
+
+    // If a preference was saved but the googtrans cookie is gone (new session
+    // or a domain-scope mismatch), restore it so the page reloads translated.
+    const cookieLang = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
+    let stored: Lang | null = null;
+    try {
+      stored = window.localStorage.getItem("preferred-lang") as Lang | null;
+    } catch {
+      /* noop */
+    }
+    if (stored === "en" && (!cookieLang || cookieLang[1] !== "en")) {
+      setLangCookie("en");
+      return;
+    }
+
 
     if (!document.getElementById("google-translate-script")) {
       window.googleTranslateElementInit = () => {
