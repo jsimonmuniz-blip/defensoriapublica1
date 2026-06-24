@@ -15,8 +15,15 @@ declare global {
 function getCurrentLang(): Lang {
   if (typeof document === "undefined") return "es";
   const m = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
-  return m && m[1] === "en" ? "en" : "es";
+  if (m) return m[1] === "en" ? "en" : "es";
+  // Fall back to the stored preference when the cookie is missing.
+  try {
+    return window.localStorage.getItem("preferred-lang") === "en" ? "en" : "es";
+  } catch {
+    return "es";
+  }
 }
+
 
 function setLangCookie(lang: Lang) {
   // Always set an explicit value: "/es/en" to translate to English, or
@@ -26,14 +33,22 @@ function setLangCookie(lang: Lang) {
   const value = `/es/${lang}`;
   const host = window.location.hostname;
   const expire = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  // Persist for a year so the choice survives reloads and new sessions.
+  const maxAge = "max-age=31536000";
   // Clear any stale cookie across every domain scope first.
   document.cookie = `googtrans=;path=/;${expire}`;
   document.cookie = `googtrans=;path=/;domain=${host};${expire}`;
   document.cookie = `googtrans=;path=/;domain=.${host};${expire}`;
   // Then set the desired value on all scopes so the widget picks it up.
-  document.cookie = `googtrans=${value};path=/`;
-  document.cookie = `googtrans=${value};path=/;domain=${host}`;
-  document.cookie = `googtrans=${value};path=/;domain=.${host}`;
+  document.cookie = `googtrans=${value};path=/;${maxAge}`;
+  document.cookie = `googtrans=${value};path=/;domain=${host};${maxAge}`;
+  document.cookie = `googtrans=${value};path=/;domain=.${host};${maxAge}`;
+  // Mirror the preference in localStorage as a resilient fallback.
+  try {
+    window.localStorage.setItem("preferred-lang", lang);
+  } catch {
+    /* noop */
+  }
   window.location.reload();
 }
 
@@ -100,7 +115,23 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState<Lang>("es");
 
   useEffect(() => {
-    setLang(getCurrentLang());
+    const current = getCurrentLang();
+    setLang(current);
+
+    // If a preference was saved but the googtrans cookie is gone (new session
+    // or a domain-scope mismatch), restore it so the page reloads translated.
+    const cookieLang = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
+    let stored: Lang | null = null;
+    try {
+      stored = window.localStorage.getItem("preferred-lang") as Lang | null;
+    } catch {
+      /* noop */
+    }
+    if (stored === "en" && (!cookieLang || cookieLang[1] !== "en")) {
+      setLangCookie("en");
+      return;
+    }
+
 
     if (!document.getElementById("google-translate-script")) {
       window.googleTranslateElementInit = () => {
