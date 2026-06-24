@@ -26,14 +26,22 @@ function setLangCookie(lang: Lang) {
   const value = `/es/${lang}`;
   const host = window.location.hostname;
   const expire = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  // Persist for a year so the choice survives reloads and new sessions.
+  const maxAge = "max-age=31536000";
   // Clear any stale cookie across every domain scope first.
   document.cookie = `googtrans=;path=/;${expire}`;
   document.cookie = `googtrans=;path=/;domain=${host};${expire}`;
   document.cookie = `googtrans=;path=/;domain=.${host};${expire}`;
   // Then set the desired value on all scopes so the widget picks it up.
-  document.cookie = `googtrans=${value};path=/`;
-  document.cookie = `googtrans=${value};path=/;domain=${host}`;
-  document.cookie = `googtrans=${value};path=/;domain=.${host}`;
+  document.cookie = `googtrans=${value};path=/;${maxAge}`;
+  document.cookie = `googtrans=${value};path=/;domain=${host};${maxAge}`;
+  document.cookie = `googtrans=${value};path=/;domain=.${host};${maxAge}`;
+  // Mirror the preference in localStorage as a resilient fallback.
+  try {
+    window.localStorage.setItem("preferred-lang", lang);
+  } catch {
+    /* noop */
+  }
   window.location.reload();
 }
 
