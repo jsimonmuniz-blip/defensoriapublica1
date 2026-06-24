@@ -126,22 +126,39 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     }
   }, []);
 
-  const isEnglish = lang === "en";
-  const Flag = isEnglish ? MexicoFlag : USFlag;
-
   return (
-    <>
+    <div
+      className={`notranslate inline-flex items-center gap-1 rounded-full border border-border bg-card p-1 text-sm font-semibold text-foreground ${className}`}
+    >
       <button
         type="button"
-        onClick={() => setLangCookie(isEnglish ? "es" : "en")}
-        title={isEnglish ? "Ver en español" : "View in English"}
-        aria-label={isEnglish ? "Ver en español" : "View in English"}
-        className={`notranslate inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent hover:text-primary ${className}`}
+        onClick={() => setLangCookie("es")}
+        title="Ver en español"
+        aria-label="Ver en español"
+        className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors ${
+          lang === "es"
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "hover:bg-accent hover:text-primary"
+        }`}
       >
-        <Flag className="h-4 w-5 rounded-sm shadow-sm" />
-        <span>{isEnglish ? "ES" : "EN"}</span>
+        <MexicoFlag className="h-4 w-5 rounded-sm shadow-sm" />
+        <span>ES</span>
+      </button>
+      <button
+        type="button"
+        onClick={() => setLangCookie("en")}
+        title="View in English"
+        aria-label="View in English"
+        className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 transition-colors ${
+          lang === "en"
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "hover:bg-accent hover:text-primary"
+        }`}
+      >
+        <USFlag className="h-4 w-5 rounded-sm shadow-sm" />
+        <span>EN</span>
       </button>
       <div id="google_translate_element" className="sr-only" aria-hidden="true" />
-    </>
+    </div>
   );
 }
