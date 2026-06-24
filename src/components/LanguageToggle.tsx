@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 
 type Lang = "es" | "en";
 
+const STORAGE_KEY = "preferred-lang";
+const COOKIE_NAME = "googtrans";
+
 declare global {
   interface Window {
     google?: any;
@@ -14,41 +17,69 @@ declare global {
 
 function getCurrentLang(): Lang {
   if (typeof document === "undefined") return "es";
-  const m = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
-  if (m) return m[1] === "en" ? "en" : "es";
-  // Fall back to the stored preference when the cookie is missing.
+  // The user's explicit choice is the source of truth. Google Translate can
+  // leave stale cookies on parent domains, so localStorage must win.
   try {
-    return window.localStorage.getItem("preferred-lang") === "en" ? "en" : "es";
-  } catch {
-    return "es";
-  }
-}
-
-
-function setLangCookie(lang: Lang) {
-  // Always set an explicit value: "/es/en" to translate to English, or
-  // "/es/es" to force the original Spanish. Setting "/es/es" (rather than
-  // deleting the cookie) reliably reverts Google Translate, which otherwise
-  // keeps the page translated after a plain cookie removal.
-  const value = `/es/${lang}`;
-  const host = window.location.hostname;
-  const expire = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  // Persist for a year so the choice survives reloads and new sessions.
-  const maxAge = "max-age=31536000";
-  // Clear any stale cookie across every domain scope first.
-  document.cookie = `googtrans=;path=/;${expire}`;
-  document.cookie = `googtrans=;path=/;domain=${host};${expire}`;
-  document.cookie = `googtrans=;path=/;domain=.${host};${expire}`;
-  // Then set the desired value on all scopes so the widget picks it up.
-  document.cookie = `googtrans=${value};path=/;${maxAge}`;
-  document.cookie = `googtrans=${value};path=/;domain=${host};${maxAge}`;
-  document.cookie = `googtrans=${value};path=/;domain=.${host};${maxAge}`;
-  // Mirror the preference in localStorage as a resilient fallback.
-  try {
-    window.localStorage.setItem("preferred-lang", lang);
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "en" || stored === "es") return stored;
   } catch {
     /* noop */
   }
+
+  const m = document.cookie.match(/(?:^|;\s*)googtrans=\/[a-z]+\/([a-z]+)/);
+  if (m) return m[1] === "en" ? "en" : "es";
+  return "es";
+}
+
+function getCookieLang(): Lang | null {
+  if (typeof document === "undefined") return null;
+  const m = document.cookie.match(/(?:^|;\s*)googtrans=\/[a-z]+\/([a-z]+)/);
+  if (!m) return null;
+  return m[1] === "en" ? "en" : "es";
+}
+
+function getDomainCandidates(hostname: string) {
+  const cleanHost = hostname.split(":")[0];
+  const isIp = /^\d{1,3}(\.\d{1,3}){3}$/.test(cleanHost);
+  const domains = new Set<string>();
+
+  if (!cleanHost || cleanHost === "localhost" || isIp) return [];
+
+  const parts = cleanHost.split(".").filter(Boolean);
+  for (let i = 0; i <= parts.length - 2; i += 1) {
+    const domain = parts.slice(i).join(".");
+    domains.add(domain);
+    domains.add(`.${domain}`);
+  }
+
+  return Array.from(domains);
+}
+
+function writeGoogTransCookie(lang: Lang) {
+  const value = `/es/${lang}`;
+  const expire = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  const persist = "max-age=31536000;SameSite=Lax";
+  const domains = getDomainCandidates(window.location.hostname);
+
+  document.cookie = `${COOKIE_NAME}=;path=/;${expire}`;
+  domains.forEach((domain) => {
+    document.cookie = `${COOKIE_NAME}=;path=/;domain=${domain};${expire}`;
+  });
+
+  document.cookie = `${COOKIE_NAME}=${value};path=/;${persist}`;
+  domains.forEach((domain) => {
+    document.cookie = `${COOKIE_NAME}=${value};path=/;domain=${domain};${persist}`;
+  });
+}
+
+function setLangCookie(lang: Lang) {
+  // Save first, then rewrite every cookie scope Google Translate may read.
+  try {
+    window.localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    /* noop */
+  }
+  writeGoogTransCookie(lang);
   window.location.reload();
 }
 
@@ -118,17 +149,18 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     const current = getCurrentLang();
     setLang(current);
 
-    // If a preference was saved but the googtrans cookie is gone (new session
-    // or a domain-scope mismatch), restore it so the page reloads translated.
-    const cookieLang = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
-    let stored: Lang | null = null;
+    // Enforce the saved preference on every mount/navigation. This prevents a
+    // stale parent-domain googtrans cookie from flipping ES back to EN or EN
+    // back to ES after reloads.
+    let stored: string | null = null;
     try {
-      stored = window.localStorage.getItem("preferred-lang") as Lang | null;
+      stored = window.localStorage.getItem(STORAGE_KEY);
     } catch {
       /* noop */
     }
-    if (stored === "en" && (!cookieLang || cookieLang[1] !== "en")) {
-      setLangCookie("en");
+    if ((stored === "en" || stored === "es") && getCookieLang() !== stored) {
+      writeGoogTransCookie(stored);
+      window.location.reload();
       return;
     }
 
