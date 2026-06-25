@@ -16,6 +16,11 @@ const slides = [
     subtitle: "Edificio Central — atención cercana, profesional y gratuita para las familias de Nuevo León.",
   },
   {
+    img: heroEdificio2Asset.url,
+    title: "Fachada del Edificio Central",
+    subtitle: "Nos encontramos en Matamoros 311 Ote., Centro de Monterrey, Nuevo León.",
+  },
+  {
     img: hero1,
     title: "Defensa jurídica gratuita para todos los nuevoleoneses",
     subtitle: "Asesoría y representación legal especializada, sin costo, para proteger tus derechos.",
