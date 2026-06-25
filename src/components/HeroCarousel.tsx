@@ -10,6 +10,11 @@ import { site, CITAS_URL } from "@/data/site";
 
 const slides = [
   {
+    img: heroEdificio,
+    title: "Instituto de Defensoría Pública",
+    subtitle: "Edificio Central — atención cercana, profesional y gratuita para las familias de Nuevo León.",
+  },
+  {
     img: hero1,
     title: "Defensa jurídica gratuita para todos los nuevoleoneses",
     subtitle: "Asesoría y representación legal especializada, sin costo, para proteger tus derechos.",
@@ -23,11 +28,6 @@ const slides = [
     img: hero3,
     title: "Estamos cerca de ti en todo el Estado",
     subtitle: "Más de 30 oficinas en el área metropolitana y municipios foráneos listas para atenderte.",
-  },
-  {
-    img: heroEdificio,
-    title: "Instituto de Defensoría Pública",
-    subtitle: "Edificio Central — atención cercana, profesional y gratuita para las familias de Nuevo León.",
   },
 ];
 
