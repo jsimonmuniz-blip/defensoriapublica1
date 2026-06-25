@@ -59,10 +59,10 @@ export function DirectorSection() {
 
             <div className="mt-5 flex flex-wrap justify-center gap-3 sm:justify-start">
               <a
-                href="tel:8120331548"
+                href="tel:8120205604"
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-white/90"
               >
-                <Phone className="h-4 w-4 text-primary" /> 8120331548
+                <Phone className="h-4 w-4 text-primary" /> 8120205604
               </a>
               <a
                 href="mailto:defensoria.publica@idpnl.gob.mx"
@@ -91,10 +91,10 @@ export function DirectorSection() {
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="tel:8120331548"
+                    href="tel:8120205604"
                     className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/50 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
-                    <Phone className="h-4 w-4 text-primary" /> 8120331548
+                    <Phone className="h-4 w-4 text-primary" /> 8120205604
                   </a>
                   <a
                     href="tel:8113061135"
