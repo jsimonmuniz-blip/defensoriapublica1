@@ -20,7 +20,6 @@ export function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm text-navy-foreground/75">
             <li><Link to="/la-defensoria" className="hover:text-primary">La Defensoría</Link></li>
             <li><Link to="/servicios" className="hover:text-primary">Servicios</Link></li>
-            <li><Link to="/tramites" className="hover:text-primary">Trámites</Link></li>
             <li><Link to="/legislacion" className="hover:text-primary">Legislación</Link></li>
             <li><Link to="/transparencia" className="hover:text-primary">Transparencia</Link></li>
             <li><Link to="/ubicacion" className="hover:text-primary">Ubicación</Link></li>

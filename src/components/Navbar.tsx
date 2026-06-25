@@ -10,7 +10,6 @@ const links = [
   { to: "/", label: "Inicio" },
   { to: "/la-defensoria", label: "La Defensoría" },
   { to: "/servicios", label: "Servicios" },
-  { to: "/tramites", label: "Trámites" },
   { to: "/legislacion", label: "Legislación" },
   { to: "/transparencia", label: "Transparencia" },
   { to: "/ubicacion", label: "Ubicación" },
