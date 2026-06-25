@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UbicacionRouteImport } from './routes/ubicacion'
 import { Route as TransparenciaRouteImport } from './routes/transparencia'
-import { Route as TramitesRouteImport } from './routes/tramites'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as LegislacionRouteImport } from './routes/legislacion'
 import { Route as LaDefensoriaRouteImport } from './routes/la-defensoria'
@@ -27,11 +26,6 @@ const UbicacionRoute = UbicacionRouteImport.update({
 const TransparenciaRoute = TransparenciaRouteImport.update({
   id: '/transparencia',
   path: '/transparencia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TramitesRoute = TramitesRouteImport.update({
-  id: '/tramites',
-  path: '/tramites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiciosRoute = ServiciosRouteImport.update({
@@ -71,7 +65,6 @@ export interface FileRoutesByFullPath {
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
-  '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
   '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
@@ -82,7 +75,6 @@ export interface FileRoutesByTo {
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
-  '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
   '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
@@ -94,7 +86,6 @@ export interface FileRoutesById {
   '/la-defensoria': typeof LaDefensoriaRoute
   '/legislacion': typeof LegislacionRoute
   '/servicios': typeof ServiciosRoute
-  '/tramites': typeof TramitesRoute
   '/transparencia': typeof TransparenciaRoute
   '/ubicacion': typeof UbicacionRoute
   '/api/chat': typeof ApiChatRoute
@@ -107,7 +98,6 @@ export interface FileRouteTypes {
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
-    | '/tramites'
     | '/transparencia'
     | '/ubicacion'
     | '/api/chat'
@@ -118,7 +108,6 @@ export interface FileRouteTypes {
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
-    | '/tramites'
     | '/transparencia'
     | '/ubicacion'
     | '/api/chat'
@@ -129,7 +118,6 @@ export interface FileRouteTypes {
     | '/la-defensoria'
     | '/legislacion'
     | '/servicios'
-    | '/tramites'
     | '/transparencia'
     | '/ubicacion'
     | '/api/chat'
@@ -141,7 +129,6 @@ export interface RootRouteChildren {
   LaDefensoriaRoute: typeof LaDefensoriaRoute
   LegislacionRoute: typeof LegislacionRoute
   ServiciosRoute: typeof ServiciosRoute
-  TramitesRoute: typeof TramitesRoute
   TransparenciaRoute: typeof TransparenciaRoute
   UbicacionRoute: typeof UbicacionRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -161,13 +148,6 @@ declare module '@tanstack/react-router' {
       path: '/transparencia'
       fullPath: '/transparencia'
       preLoaderRoute: typeof TransparenciaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tramites': {
-      id: '/tramites'
-      path: '/tramites'
-      fullPath: '/tramites'
-      preLoaderRoute: typeof TramitesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicios': {
@@ -221,7 +201,6 @@ const rootRouteChildren: RootRouteChildren = {
   LaDefensoriaRoute: LaDefensoriaRoute,
   LegislacionRoute: LegislacionRoute,
   ServiciosRoute: ServiciosRoute,
-  TramitesRoute: TramitesRoute,
   TransparenciaRoute: TransparenciaRoute,
   UbicacionRoute: UbicacionRoute,
   ApiChatRoute: ApiChatRoute,
@@ -229,13 +208,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
