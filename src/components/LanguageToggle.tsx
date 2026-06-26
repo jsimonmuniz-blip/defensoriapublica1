@@ -150,16 +150,19 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     setLang(current);
 
     // Enforce the saved preference on every mount/navigation. This prevents a
-    // stale parent-domain googtrans cookie from flipping ES back to EN or EN
-    // back to ES after reloads.
+    // stale parent-domain googtrans cookie from flipping EN back to ES after a
+    // reload. We only ever need to force EN: Spanish is the source language, so
+    // Google Translate removes the "/es/es" cookie (same source & target),
+    // which would otherwise trigger an endless reload loop. Treat a missing
+    // cookie as Spanish (the default) and never reload for the "es" case.
     let stored: string | null = null;
     try {
       stored = window.localStorage.getItem(STORAGE_KEY);
     } catch {
       /* noop */
     }
-    if ((stored === "en" || stored === "es") && getCookieLang() !== stored) {
-      writeGoogTransCookie(stored);
+    if (stored === "en" && getCookieLang() !== "en") {
+      writeGoogTransCookie("en");
       window.location.reload();
       return;
     }

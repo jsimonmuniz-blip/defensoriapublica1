@@ -70,7 +70,7 @@ function Index() {
             <h2 className="mt-4 font-display text-3xl font-extrabold text-foreground sm:text-4xl">
               Protegemos tus derechos, sin importar tu situación
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground">{mision}</p>
+            <p className="mt-5 text-justify text-base leading-relaxed text-muted-foreground">{mision}</p>
             <Link
               to="/la-defensoria"
               className="mt-6 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3"
