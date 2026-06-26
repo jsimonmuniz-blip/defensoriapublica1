@@ -25,11 +25,11 @@ function LaDefensoria() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
             <h2 className="font-display text-2xl font-bold text-primary">Misión</h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{mision}</p>
+            <p className="mt-3 text-justify leading-relaxed text-muted-foreground">{mision}</p>
           </div>
           <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
             <h2 className="font-display text-2xl font-bold text-primary">Visión</h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">{vision}</p>
+            <p className="mt-3 text-justify leading-relaxed text-muted-foreground">{vision}</p>
           </div>
 
 
