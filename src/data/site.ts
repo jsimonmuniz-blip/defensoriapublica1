@@ -36,7 +36,7 @@ export const site = {
 };
 
 export const mision =
-  "Organismo Público que brinda gratuitamente en todo el Estado, servicios jurídicos en materia Penal orientados a una defensa adecuada, ininterrumpida, oportuna, técnica, eficiente y competente; igualmente en materias Familiar, Civil, Mercantil, Métodos Alternos y de Justicia Administrativa provee servicios de orientación, asesoría y representación legal, integral y exhaustiva, poniendo especial énfasis en la protección y defensa de los derechos de las personas de escasos recursos económicos y de grupos vulnerables.";
+  "Brinda gratuitamente servicios de orientación, asesoría, representación y defensa jurídica en las materias de su competencia, garantizando en materia penal una defensa adecuada, técnica, continua, oportuna y eficiente, y en las materias Familiar, Civil, Mercantil, Métodos Alternos de Solución de Controversias y Justicia Administrativa una representación legal integral, con enfoque de derechos humanos.";
 
 export const vision =
   "Integrar una institución con abogados comprometidos con la excelencia académica y desempeño profesional, dotados de una indeclinable vocación de servicio, conduciéndose dentro de los principios de honestidad y eficiencia, generando confianza en la sociedad en la atención de los asuntos que les sean conferidos.";
@@ -96,19 +96,22 @@ export const tramites: Tramite[] = [
 ];
 
 export const materias = [
-  { titulo: "Materia Penal", desc: "Defensa adecuada, ininterrumpida, oportuna, técnica y competente para acusados en el Nuevo Sistema de Justicia Penal." },
+  { titulo: "Defensa Penal", desc: "Defensa adecuada, técnica, continua, oportuna y eficiente para acusados en el Nuevo Sistema de Justicia Penal." },
+  { titulo: "Defensa Inicial", desc: "Asistencia jurídica desde la etapa inicial de investigación penal." },
+  { titulo: "Justicia para Adolescentes", desc: "Defensa especializada para adolescentes en el sistema de justicia." },
+  { titulo: "Ejecución de Sanciones", desc: "Defensa especializada en la etapa de ejecución de sanciones penales." },
+  { titulo: "Segunda Instancia y Amparo", desc: "Defensa en recursos de apelación y juicios de amparo." },
   { titulo: "Materia Familiar", desc: "Orientación, asesoría y representación en divorcios, alimentos, guarda y custodia, patria potestad y más." },
   { titulo: "Materia Civil", desc: "Asesoría y patrocinio en sucesiones, enajenación de bienes y juicios civiles." },
-  { titulo: "Justicia para Adolescentes", desc: "Defensa especializada para adolescentes en el sistema de justicia." },
-  { titulo: "Ejecución de Sanciones", desc: "Defensa especializada en ejecución de sanciones penales." },
-  { titulo: "Segunda Instancia y Amparo", desc: "Defensa en recursos de apelación y juicios de amparo." },
-  { titulo: "Métodos Alternos", desc: "Mediación y solución de controversias para resolver conflictos sin litigio." },
-  { titulo: "Justicia Administrativa", desc: "Orientación y asesoría en asuntos administrativos." },
+  { titulo: "Materia Mercantil", desc: "Asesoría y representación legal en asuntos y controversias mercantiles." },
+  { titulo: "Justicia Administrativa", desc: "Orientación, asesoría y representación en asuntos administrativos." },
+  { titulo: "Métodos Alternos de Solución de Controversias", desc: "Mediación y conciliación para resolver conflictos sin litigio." },
 ];
 
 export const legislacion = [
   { titulo: "Ley de Defensoría Pública para el Estado de Nuevo León", file: "leyes/ley_ deIDPNL.pdf" },
   { titulo: "Reglamento del Instituto de Defensoría Pública (2015)", file: "leyes/Reglamento del IDP_2015.pdf" },
+  { titulo: "Nuevo Código de Ética para las personas servidoras públicas del Estado de Nuevo León", file: "leyes/Nuevo_CÓDIGO_DE_ÉTICA.pdf" },
 ];
 
 export type DocItem = { titulo: string; file: string };
