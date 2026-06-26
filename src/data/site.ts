@@ -36,7 +36,7 @@ export const site = {
 };
 
 export const mision =
-  "Brinda gratuitamente servicios de orientación, asesoría, representación y defensa jurídica en las materias de su competencia, garantizando en materia penal una defensa adecuada, técnica, continua, oportuna y eficiente, y en las materias Familiar, Civil, Mercantil, Métodos Alternos de Solución de Controversias y Justicia Administrativa una representación legal integral, con enfoque de derechos humanos.";
+  "Brindar gratuitamente servicios de orientación, asesoría, representación y defensa jurídica en las materias de su competencia, garantizando en materia penal una defensa adecuada, técnica, continua, oportuna y eficiente, y en las materias Familiar, Civil, Mercantil, Métodos Alternos de Solución de Controversias y Justicia Administrativa una representación legal integral, con enfoque de derechos humanos.";
 
 export const vision =
   "Integrar una institución con abogados comprometidos con la excelencia académica y desempeño profesional, dotados de una indeclinable vocación de servicio, conduciéndose dentro de los principios de honestidad y eficiencia, generando confianza en la sociedad en la atención de los asuntos que les sean conferidos.";
