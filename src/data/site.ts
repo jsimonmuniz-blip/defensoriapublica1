@@ -244,6 +244,12 @@ export const directorio: DirectorioGrupo[] = [
     ],
   },
   {
+    titulo: "Defensa Ejecución de Sanciones",
+    oficinas: [
+      { nombre: "Monterrey (Edificio Central, Piso 5)", telefono: "81 2033-1564", direccion: "Matamoros 311, piso 5, Centro de Monterrey, N.L." },
+    ],
+  },
+  {
     titulo: "Defensa en Segunda Instancia y Amparo",
     oficinas: [
       { nombre: "Monterrey", telefono: "81 2020-5681", direccion: "Allende 322, Centro de Monterrey, N.L." },
