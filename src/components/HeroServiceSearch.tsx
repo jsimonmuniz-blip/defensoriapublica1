@@ -61,25 +61,28 @@ export function HeroServiceSearch() {
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <span className="text-xs font-semibold text-navy-foreground/80 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
+      <div className="mt-3">
+        <span className="mb-2 block text-xs font-semibold text-navy-foreground/80 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
           Búsquedas frecuentes:
         </span>
-        {POPULARES.map((p) => (
-          <button
-            key={p}
-            type="button"
-            onClick={() => {
-              setQuery(p);
-              setFocused(true);
-              inputRef.current?.focus();
-            }}
-            className="rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs font-medium text-navy-foreground backdrop-blur transition-colors hover:bg-white/30"
-          >
-            {p}
-          </button>
-        ))}
+        <div className="flex flex-wrap items-center gap-2">
+          {POPULARES.map((p) => (
+            <button
+              key={p}
+              type="button"
+              onClick={() => {
+                setQuery(p);
+                setFocused(true);
+                inputRef.current?.focus();
+              }}
+              className="whitespace-nowrap rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs font-medium text-navy-foreground backdrop-blur transition-colors hover:bg-white/30"
+            >
+              {p}
+            </button>
+          ))}
+        </div>
       </div>
+
 
       {open && (
         <div className="absolute z-30 mt-2 w-full overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
