@@ -8,6 +8,7 @@ import hero3 from "@/assets/hero-3.jpg";
 import heroEdificio from "@/assets/hero-edificio.jpg";
 import heroEdificio2Asset from "@/assets/hero-edificio2.jpg.asset.json";
 import { site, CITAS_URL } from "@/data/site";
+import { HeroServiceSearch } from "@/components/HeroServiceSearch";
 
 const slides = [
   {
@@ -90,6 +91,8 @@ export function HeroCarousel() {
               <p className="mt-5 max-w-2xl text-lg text-navy-foreground/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">{slide.subtitle}</p>
             </motion.div>
           </AnimatePresence>
+
+          <HeroServiceSearch />
 
           <div className="mt-9 flex flex-wrap gap-4">
             <a

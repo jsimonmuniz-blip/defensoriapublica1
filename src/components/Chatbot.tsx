@@ -7,14 +7,15 @@ import { X, Send, Sparkles } from "lucide-react";
 import dipi from "@/assets/dipi-mascot.png";
 
 const SUGGESTIONS = [
-  "Quiero asesoría de divorcio",
-  "¿Qué servicios ofrecen?",
-  "¿Cómo agendo una cita?",
-  "¿Dónde están sus oficinas?",
+  "Soy de Monterrey",
+  "Soy de Guadalupe",
+  "Soy de San Nicolás",
+  "Soy de otro municipio",
 ];
 
 const GREETING =
-  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Puedo ayudarte con trámites, servicios gratuitos, ubicaciones y dudas legales. ¿En qué te apoyo?";
+  "¡Hola! 👋 Soy el asistente virtual del Instituto de Defensoría Pública de Nuevo León. Para orientarte con la oficina y los servicios que te corresponden, cuéntame: **¿de qué municipio nos escribes?**";
+
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
