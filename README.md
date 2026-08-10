@@ -1,31 +1,54 @@
-# IDPnl Connect
+# Instituto de Defensoría Pública de Nuevo León
 
-vamos a rediseñar y modernizar un sitio que ya existe!, pero quiero tomar toda la informacion de ahi y arrastrar los archivos pdf, las ligas a donde nos llevan y todo, pero lo quiero mas moderno y actual fresco y dinamico para que sea facil de navegar para los usuarios del sitio.
-el sitio es : idpnl.gob.mx analizalo a fondo!
-quiero un fondo en Hero con las imagenes que estan rotando en inicio y quiero un chatbot que sepa todo lo que hay en el sitio y que nos ayude a que los usuarios le puedan pregunctar cosas acerca del sitio y cosas como donde sacar curp o actas de nacimiento y que nos mande a ligas, el chatboot solo puede hablar de cosas del sitio, y debe ser amigable y aparecer como conversacion de ayuda a los primeros 5 segundos de entrar al sitio 
-el logo es super importante, entonces debe tener un buen tamaño y es importante que la pagina sea en colores NAranja blanco y algo de azul oscuro.
+Aplicación web del Instituto de Defensoría Pública de Nuevo León, desarrollada para proporcionar información institucional, servicios de asesoría y defensa jurídica, trámites, legislación, transparencia, ubicación de oficinas y canales de contacto.
 
-usa absolutamente toda la informacion del sitio en el sitio que vamos a crear y mejora su aspecto.
+## Descripción
 
-This project was built with [Lovable](https://lovable.dev).
+El proyecto ofrece una interfaz web moderna, responsiva y accesible para facilitar el acceso de la ciudadanía a la información y servicios del Instituto de Defensoría Pública de Nuevo León.
 
-**Live app**: https://defensoriapublica1.lovable.app
+Entre sus principales funcionalidades se encuentran:
 
-## Build with Lovable
+- Información institucional.
+- Servicios de defensa y asesoría jurídica.
+- Información sobre trámites.
+- Consulta de legislación.
+- Información de transparencia.
+- Directorio y ubicación de oficinas.
+- Información de contacto.
+- Navegación adaptada a dispositivos móviles.
+- Buscador de contenido.
+- Asistente conversacional basado en inteligencia artificial.
+- Integración con Google Gemini para funcionalidades de IA.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7dd24c06-37bc-401a-9eaf-6ad7194b0695).
+## Tecnologías utilizadas
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- React
+- TypeScript
+- TanStack Start
+- TanStack Router
+- TanStack React Query
+- Vite
+- Tailwind CSS
+- Radix UI
+- Framer Motion
+- React Hook Form
+- Zod
+- Google Gemini
+- AI SDK
+- Nitro
 
-## Development
+## Requisitos
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Para ejecutar el proyecto localmente se requiere:
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+- Node.js 20 o superior
+- npm
+
+También puede utilizarse Bun si se desea trabajar con el gestor de paquetes utilizado originalmente por el proyecto.
+
+## Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
