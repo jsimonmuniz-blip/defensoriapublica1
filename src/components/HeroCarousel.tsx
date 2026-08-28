@@ -6,7 +6,6 @@ import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 import heroEdificio from "@/assets/hero-edificio.jpg";
-import heroEdificio2Asset from "@/assets/hero-edificio2.jpg.asset.json";
 import { site, CITAS_URL } from "@/data/site";
 import { HeroServiceSearch } from "@/components/HeroServiceSearch";
 
@@ -17,7 +16,7 @@ const slides = [
     subtitle: "Edificio Central — atención cercana, profesional y gratuita para las familias de Nuevo León.",
   },
   {
-    img: heroEdificio2Asset.url,
+    img: heroEdificio,
     title: "Fachada del Edificio Central",
     subtitle: "Nos encontramos en Matamoros 311 Ote., Centro de Monterrey, Nuevo León.",
   },
