@@ -1,0 +1,5 @@
+# API de Google Gemini utilizada por Defensa Virtual
+# NO coloque aquí una clave real.
+# En producción, configure esta variable en el servidor.
+
+GOOGLE_GENERATIVE_AI_API_KEY=REEMPLAZAR_CON_LA_CLAVE_DEL_SERVIDOR

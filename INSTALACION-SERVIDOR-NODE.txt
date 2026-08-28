@@ -1,0 +1,210 @@
+# INSTALACIÓN IDPNL — VPS Ubuntu + Node.js + Nginx
+
+## 1. REQUISITOS
+
+Se necesita:
+
+- VPS con Ubuntu LTS.
+- Acceso SSH.
+- Node.js compatible con el proyecto.
+- Nginx.
+- Git.
+- Dominio.
+- Certificado SSL.
+
+## 2. INSTALAR PAQUETES BASE
+
+Actualizar Ubuntu:
+
+    sudo apt update
+
+Instalar Git y Nginx:
+
+    sudo apt install -y git nginx
+
+Instalar Node.js utilizando el método recomendado por el administrador del servidor.
+
+Comprobar:
+
+    node -v
+
+    npm -v
+
+## 3. DESCARGAR EL PROYECTO
+
+Ejemplo:
+
+    cd /var/www
+
+    sudo git clone URL_DEL_REPOSITORIO idpnl
+
+Después:
+
+    sudo chown -R $USER:$USER /var/www/idpnl
+
+Entrar al proyecto:
+
+    cd /var/www/idpnl
+
+## 4. INSTALAR DEPENDENCIAS
+
+Ejecutar:
+
+    npm install
+
+## 5. CONFIGURAR LA API DE GEMINI
+
+Crear:
+
+    nano .env
+
+Agregar:
+
+    GOOGLE_GENERATIVE_AI_API_KEY=CLAVE_REAL
+
+Guardar el archivo.
+
+Protegerlo:
+
+    chmod 600 .env
+
+## 6. CONSTRUIR
+
+Ejecutar:
+
+    npm run build
+
+El proceso debe terminar sin errores.
+
+## 7. SERVIDOR DE PRODUCCIÓN
+
+Este proyecto utiliza TanStack Start.
+
+El comando exacto de producción depende del output generado por el build.
+
+Después de ejecutar:
+
+    npm run build
+
+se debe revisar qué archivo de servidor fue generado.
+
+Por ejemplo, algunos despliegues pueden generar:
+
+    .output/server/index.mjs
+
+En ese caso el servidor puede ejecutarse con:
+
+    node .output/server/index.mjs
+
+Si el proyecto genera:
+
+    dist/server/server.js
+
+se debe utilizar la modalidad de servidor Node correspondiente a ese output.
+
+NO asumir un comando sin comprobar el output real del build.
+
+## 8. NGINX
+
+Crear un archivo:
+
+    sudo nano /etc/nginx/sites-available/idpnl
+
+Ejemplo:
+
+    server {
+        server_name DOMINIO_DEL_CLIENTE;
+
+        location / {
+            proxy_pass http://127.0.0.1:3000;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+IMPORTANTE:
+
+El puerto 3000 es solamente un ejemplo.
+
+Debe coincidir con el puerto donde esté ejecutándose la aplicación Node.js.
+
+## 9. ACTIVAR NGINX
+
+Ejecutar:
+
+    sudo ln -s /etc/nginx/sites-available/idpnl /etc/nginx/sites-enabled/idpnl
+
+Comprobar configuración:
+
+    sudo nginx -t
+
+Si no hay errores:
+
+    sudo systemctl reload nginx
+
+## 10. MANTENER NODE EJECUTÁNDOSE
+
+Se recomienda utilizar:
+
+- systemd
+- PM2
+- u otro gestor de procesos
+
+El proceso Node debe reiniciarse automáticamente si el servidor se reinicia.
+
+## 11. SSL
+
+Después de que el dominio apunte al VPS, configurar HTTPS mediante el método autorizado por el administrador del servidor.
+
+Una opción habitual es Certbot.
+
+## 12. COMPROBACIÓN
+
+Comprobar primero la aplicación localmente:
+
+    curl -I http://127.0.0.1:3000
+
+Después probar el dominio HTTPS.
+
+Comprobar:
+
+- Página principal.
+- Imágenes.
+- PDFs.
+- Navegación.
+- Botón Defensa Virtual.
+- Respuesta de Defensa Virtual.
+- Ruta /api/chat.
+
+## 13. ACTUALIZACIÓN
+
+Entrar al proyecto:
+
+    cd /var/www/idpnl
+
+Actualizar:
+
+    git pull origin main
+
+Instalar dependencias:
+
+    npm install
+
+Construir:
+
+    npm run build
+
+Después reiniciar el servicio Node.
+
+## 14. SEGURIDAD
+
+Nunca guardar la API key dentro del repositorio Git.
+
+Nunca subir .env.
+
+Nunca colocar .env dentro de una carpeta pública.
+
+No mostrar la API key en logs.

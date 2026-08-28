@@ -1,0 +1,180 @@
+# INSTALACIÓN IDPNL — Windows Server + IIS + Node.js
+
+## 1. REQUISITOS
+
+Se necesita:
+
+- Windows Server.
+- IIS.
+- Node.js.
+- Git.
+- Dominio.
+- Certificado SSL.
+- Permisos administrativos.
+
+## 2. INSTALAR NODE.JS
+
+Instalar una versión compatible con el proyecto.
+
+Comprobar desde PowerShell:
+
+    node -v
+
+    npm -v
+
+## 3. DESCARGAR EL PROYECTO
+
+Ejemplo:
+
+    cd C:\inetpub\
+
+    git clone URL_DEL_REPOSITORIO idpnl
+
+Entrar:
+
+    cd C:\inetpub\idpnl
+
+## 4. INSTALAR DEPENDENCIAS
+
+Ejecutar:
+
+    npm install
+
+## 5. CONFIGURAR LA API DE GEMINI
+
+Crear:
+
+    C:\inetpub\idpnl\.env
+
+Contenido:
+
+    GOOGLE_GENERATIVE_AI_API_KEY=CLAVE_REAL
+
+IMPORTANTE:
+
+No colocar .env dentro de wwwroot.
+
+No subir .env a GitHub.
+
+## 6. CONSTRUIR
+
+Ejecutar:
+
+    npm run build
+
+Debe terminar sin errores.
+
+## 7. ARQUITECTURA DEL SERVIDOR
+
+TanStack Start necesita un runtime de servidor para:
+
+- Renderizado SSR.
+- Rutas del servidor.
+- API /api/chat.
+- Comunicación con Google Gemini.
+
+Por lo tanto, IIS NO debe tratar este proyecto simplemente como una carpeta de archivos estáticos.
+
+La arquitectura recomendada es:
+
+    INTERNET
+       |
+       | HTTPS
+       |
+      IIS
+       |
+       | Reverse Proxy
+       |
+     Node.js
+       |
+       |
+    TanStack Start
+       |
+       |
+    Google Gemini
+
+## 8. PUERTO INTERNO
+
+Ejemplo:
+
+    Node.js: 127.0.0.1:3000
+
+    IIS:
+    https://dominio-del-cliente/
+
+El puerto exacto depende del servidor de producción utilizado.
+
+## 9. CONFIGURAR IIS
+
+IIS debe configurarse como Reverse Proxy hacia la aplicación Node.js.
+
+Esto permite que:
+
+    https://dominio-del-cliente/
+
+sea atendido por IIS y posteriormente enviado a:
+
+    http://127.0.0.1:3000
+
+## 10. SSL
+
+Instalar el certificado SSL del dominio en IIS.
+
+Configurar el sitio para utilizar HTTPS.
+
+## 11. COMPROBACIÓN
+
+Abrir el dominio y comprobar:
+
+- Página principal.
+- Imágenes.
+- PDFs.
+- Navegación.
+- Botón Defensa Virtual.
+- Respuesta de Defensa Virtual.
+
+## 12. SI APARECE "Cannot GET /"
+
+Comprobar:
+
+1. Que Node.js esté ejecutándose.
+2. Que la aplicación TanStack Start esté levantada.
+3. Que IIS esté enviando las solicitudes al puerto correcto.
+4. Que el dominio esté apuntando al sitio correcto.
+
+NO utilizar:
+
+    npm run preview
+
+como servidor permanente.
+
+## 13. ACTUALIZACIÓN
+
+Entrar al proyecto:
+
+    cd C:\inetpub\idpnl
+
+Actualizar:
+
+    git pull origin main
+
+Instalar dependencias:
+
+    npm install
+
+Construir:
+
+    npm run build
+
+Después reiniciar el proceso Node.js.
+
+## 14. SEGURIDAD
+
+La API key debe mantenerse como variable de entorno.
+
+Nunca:
+
+- Subir .env a GitHub.
+- Colocar la API key en el código.
+- Colocar .env dentro de una carpeta pública.
+- Mostrar la clave en capturas o logs.

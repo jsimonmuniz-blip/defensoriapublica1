@@ -1,0 +1,77 @@
+# IDPNL — Documentación de instalación
+
+Este paquete contiene instrucciones para instalar el sitio del Instituto de Defensoría Pública de Nuevo León (IDPNL) fuera de Lovable.
+
+## IMPORTANTE
+
+Este proyecto utiliza TanStack Start + Vite + Node.js y contiene una API del lado servidor para el asistente "Defensa Virtual" con Google Gemini.
+
+Por ello, NO debe instalarse simplemente copiando la carpeta dist a un hosting estático si se requiere que el chat siga funcionando.
+
+## ANTES DE INSTALAR
+
+Se necesita:
+
+- Código completo del proyecto.
+- Node.js compatible con las dependencias del proyecto.
+- Acceso al servidor/hosting.
+- Dominio apuntando al servidor.
+- Variable de entorno GOOGLE_GENERATIVE_AI_API_KEY.
+- Certificado SSL/HTTPS.
+
+## ¿QUÉ MANUAL USAR?
+
+Si el cliente tiene cPanel y permite aplicaciones Node.js:
+
+    INSTALACION-CPANEL-NODE.md
+
+Si el cliente tiene un VPS Linux/Ubuntu:
+
+    INSTALACION-VPS-UBUNTU.md
+
+Si el cliente tiene Windows Server con IIS:
+
+    INSTALACION-WINDOWS-IIS.md
+
+## VARIABLE DE ENTORNO
+
+En el servidor se debe configurar:
+
+GOOGLE_GENERATIVE_AI_API_KEY=COLOCAR_AQUI_LA_CLAVE_REAL
+
+IMPORTANTE:
+Nunca subir el archivo .env a GitHub.
+Nunca colocar la API key directamente dentro del código.
+Nunca colocar la API key dentro de una carpeta pública.
+
+## COMPROBACIÓN FINAL
+
+Después del despliegue comprobar:
+
+1. La página principal carga correctamente.
+2. Las imágenes aparecen.
+3. Los documentos PDF abren correctamente.
+4. El menú y la navegación funcionan.
+5. El botón de Defensa Virtual aparece.
+6. Defensa Virtual responde.
+7. El dominio funciona con HTTPS.
+
+## ACTUALIZACIONES
+
+Antes de actualizar una instalación existente:
+
+    git pull origin main
+    npm install
+    npm run build
+
+Después reiniciar el proceso de Node.js según el método utilizado por el servidor.
+
+## NOTA SOBRE npm run preview
+
+El comando:
+
+    npm run preview
+
+sirve para comprobar localmente el build de producción.
+
+NO debe utilizarse como servidor de producción permanente.

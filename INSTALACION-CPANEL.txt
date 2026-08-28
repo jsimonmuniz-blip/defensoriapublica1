@@ -1,0 +1,144 @@
+# INSTALACIÓN IDPNL — cPanel + Node.js
+
+## 1. CONFIRMAR REQUISITOS
+
+El proveedor de hosting debe permitir:
+
+- Aplicaciones Node.js.
+- Selección de versión de Node.js.
+- Terminal SSH o Terminal de cPanel, preferentemente.
+- Variables de entorno para la aplicación.
+- Dominio o subdominio.
+
+Si cPanel solamente permite subir archivos HTML/PHP y NO permite ejecutar Node.js, este proyecto no debe instalarse ahí sin modificar su arquitectura.
+
+## 2. SUBIR EL PROYECTO
+
+Subir el proyecto completo al servidor.
+
+Ejemplo:
+
+    /home/USUARIO/idpnl/
+
+NO subir:
+
+    node_modules/
+    dist/
+    .env
+
+## 3. INSTALAR DEPENDENCIAS
+
+Desde la Terminal de cPanel:
+
+    cd ~/idpnl
+
+Después:
+
+    npm install
+
+## 4. CONFIGURAR LA API DE GEMINI
+
+Crear el archivo:
+
+    .env
+
+en la raíz del proyecto.
+
+Contenido:
+
+    GOOGLE_GENERATIVE_AI_API_KEY=CLAVE_REAL
+
+La clave debe mantenerse privada.
+
+## 5. CONSTRUIR EL PROYECTO
+
+Ejecutar:
+
+    npm run build
+
+El comando debe finalizar sin errores.
+
+## 6. CONFIGURAR NODE.JS EN CPANEL
+
+En cPanel buscar una opción similar a:
+
+- Setup Node.js App
+- Application Manager
+- Node.js Selector
+
+Crear una aplicación Node.js apuntando a la carpeta del proyecto.
+
+IMPORTANTE:
+
+No asumir que el comando de inicio es "npm run start", porque este proyecto originalmente no tiene un script "start".
+
+El comando de producción debe corresponder al servidor generado por TanStack Start/Nitro en el build.
+
+## 7. CONFIGURAR EL DOMINIO
+
+Asignar el dominio o subdominio a la aplicación Node.js.
+
+Activar HTTPS/SSL.
+
+## 8. COMPROBACIÓN
+
+Abrir el dominio y comprobar:
+
+- Página principal.
+- Imágenes.
+- PDFs.
+- Navegación.
+- Defensa Virtual.
+- Respuestas de Defensa Virtual.
+
+## 9. SI APARECE "Cannot GET /"
+
+Comprobar:
+
+1. Que la aplicación Node.js esté ejecutándose.
+2. Que el dominio esté conectado a la aplicación correcta.
+3. Que se haya ejecutado:
+
+    npm run build
+
+4. Que el servidor de producción de TanStack Start esté configurado correctamente.
+
+NO utilizar "npm run preview" como solución permanente.
+
+## 10. SI DEFENSA VIRTUAL NO RESPONDE
+
+Comprobar que la aplicación tenga configurada la variable:
+
+    GOOGLE_GENERATIVE_AI_API_KEY
+
+No mostrar la clave en capturas, logs o tickets.
+
+## 11. ACTUALIZACIÓN
+
+Entrar a la carpeta del proyecto:
+
+    cd ~/idpnl
+
+Actualizar:
+
+    git pull origin main
+
+Instalar dependencias:
+
+    npm install
+
+Construir:
+
+    npm run build
+
+Después reiniciar la aplicación Node.js desde cPanel.
+
+## 12. SEGURIDAD
+
+Nunca subir:
+
+    .env
+
+a GitHub.
+
+Nunca colocar la API key directamente en los archivos TypeScript o JavaScript.
